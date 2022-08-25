@@ -1,0 +1,99 @@
+<template>
+  <ul class="crumbOut" ref="crumb" :style="crumbWidth">
+    <li v-for="(item, index) in crumbList" :key="index" :class="{'crumbActive' : crumbActiveIndex == index}" @contextmenu.prevent.stop="showCrumbMenu(index, $event)" @click="crumbChange(index, item)">
+      {{item.name}}
+      <i v-if="index != 0" @click.stop="closeCurrentCrumb(index)">×</i>
+    </li>
+    
+    <transition name="dialog-fade">
+      <div class="crumbMenuMask" v-show="crumbMenuShow" @click="crumbMenuShow = false">
+        <div class="crumbMenu" :style="{top: top + 'px', left: left + 'px'}">
+          <div class="transition-box">
+            <div class="crumbMenuItem" @click="handleCrumbMenu('current')">关闭当前菜单</div>
+            <div class="crumbMenuItem" @click="handleCrumbMenu('other')">关闭其他菜单</div>
+            <div class="crumbMenuItem" @click="handleCrumbMenu('all')">关闭全部菜单</div>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </ul>
+</template>
+
+<script>
+  export default {
+    name: 'Crumb',
+    props: ['crumbList', 'crumbActiveIndex', 'collapse'],
+    data() {
+      return {
+        crumbMenuIndex: '',
+        crumbMenuShow: false,
+        left: 0,
+        top: 0
+      }
+    },
+    methods: {
+      crumbChange(index, item) {
+        this.$emit('crumbChange', index, item)
+      },
+      closeCurrentCrumb(index) {
+        this.$emit('closeCurrentCrumb', index)
+      },
+      showCrumbMenu(index, e) {
+        this.crumbMenuIndex = index
+        this.crumbMenuShow = true
+        this.left = e.pageX + 15
+        this.top = e.pageY + 10
+      },
+      handleCrumbMenu(type) {
+        this.$emit('handleCrumbMenu', type, this.crumbMenuIndex)
+      }
+    },
+    computed: {
+      crumbWidth() {
+        if (this.collapse) {
+          return {
+            width: 'calc(100vw - 80px)'
+          }
+        } else {
+          return {
+            width: 'calc(100vw - 256px)'
+          }
+        }
+      }
+    },
+    watch: {
+      crumbList(newVal, oldVal) {
+        const scrollWidth = this.$refs.crumb.scrollWidth
+        this.$refs.crumb.scrollTo(scrollWidth, 0)
+      }
+    }
+  }
+</script>
+
+<style lang="less" scoped>
+  .crumbOut{background: #fff;height: 40px;display: flex;overflow-x: auto;overflow-y: hidden;box-shadow: 0 6px 8px rgb(0 33 64 / 5%);scroll-behavior: smooth;
+    li{padding: 0 35px;line-height: 40px;cursor: pointer;position: relative;white-space: nowrap;
+      i{color: #666;position: absolute;top: 48%;right: 10px;transform: translateY(-50%);opacity: 0;font-size: 16px;}
+    }
+    li::before{content: '';width: 1px;height: 40%;background: #d9d9d9;position: absolute;top: 50%;right: 0;transform: translateY(-50%);}
+    li:hover{color: var(--primary);
+      i{color: var(--primary);opacity: 1;}
+    }
+    li:hover::after{content: '';width: 20%;height: 2px;background: var(--primary);position: absolute;left: 50%;bottom: 0;transform: translateX(-50%);}
+    .crumbActive{color: var(--primary);}
+    .crumbActive::after {content: '';width: 20%;height: 2px;background: var(--primary);position: absolute;left: 50%;bottom: 0;transform: translateX(-50%);}
+    .crumbMenuMask{width: 100%;height: 100%;position: fixed;top: 0;left: 0;z-index: 999;
+      .crumbMenu{width: 140px;background: #fff;position: fixed;top: 0;left: 0;box-shadow: 0 0 4px 2px rgba(0, 0, 0, .1);
+        .crumbMenuItem{line-height: 40px;border-bottom: 1px solid #F2F6FC;text-align: center;cursor: pointer;}
+        .crumbMenuItem:last-child{border-bottom: none;}
+        .crumbMenuItem:hover{color: var(--primary);}
+      }
+    }
+  }
+  ul::-webkit-scrollbar{height: 0;}
+  ul:hover{
+    &::-webkit-scrollbar{height: 3px;}
+    &::-webkit-scrollbar-track{background: #EBEEF5;}
+    &::-webkit-scrollbar-thumb{background: #C0C4CC;}
+  }
+</style>>

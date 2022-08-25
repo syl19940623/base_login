@@ -1,0 +1,699 @@
+{
+  "data": [
+    {
+      "name": "地址,电话,通讯录,联系人",
+      "class": "fa fa-address-book fa-fw", 
+      "show": true
+    },
+    {
+      "name": "地址,电话本,电话薄,通讯录",
+      "class": "fa fa-address-book-o fa-fw", 
+      "show": true
+    },
+    {
+      "name": "统计表,统计图,水球图,图表",
+      "class": "fa fa-area-chart fa-fw",
+      "show": true
+    },
+    {
+      "name": "统计表,统计图,饼图,分区",
+      "class": "fa fa-pie-chart fa-fw",
+      "show": true
+    },
+    {
+      "name": "统计表,统计图,折线统计表,预测",
+      "class": "fa fa-line-chart fa-fw",
+      "show": true
+    },
+    {
+      "name": "雪花,米字,星号,米字键",
+      "class": "fa fa-asterisk fa-fw",
+      "show": true
+    },
+    {
+      "name": "邮件,邮箱",
+      "class": "fa fa-at fa-fw",
+      "show": true
+    },
+    {
+      "name": "禁止,忙,禁止通行,路标",
+      "class": "fa fa-ban fa-fw",
+      "show": true
+    },
+    {
+      "name": "大学,学校,家,公司,银行,建筑",
+      "class": "fa fa-university fa-fw",
+      "show": true
+    },
+    {
+      "name": "条形,柱状,统计图,统计表",
+      "class": "fa fa-bar-chart fa-fw",
+      "show": true
+    },
+    {
+      "name": "条形码,一维码,条码,二维码",
+      "class": "fa fa-barcode fa-fw",
+      "show": true
+    },
+    {
+      "name": "栏目,选项,菜单,下拉",
+      "class": "fa fa-bars fa-fw",
+      "show": true
+    },
+    {
+      "name": "铃,钟,钟声,铃声,消息",
+      "class": "fa fa-bell fa-fw",
+      "show": true
+    },
+    {
+      "name": "铃,钟,钟声,铃声,消息",
+      "class": "fa fa-bell-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "静音,消除告警",
+      "class": "fa fa-bell-slash fa-fw",
+      "show": true
+    },
+    {
+      "name": "静音,消除告警",
+      "class": "fa fa-bell-slash-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "图书,字典,书籍,书签",
+      "class": "fa fa-book fa-fw",
+      "show": true
+    },
+    {
+      "name": "公文包,行李箱,皮包,盒子",
+      "class": "fa fa-briefcase fa-fw",
+      "show": true
+    },
+    {
+      "name": "错误,调试,病毒,木马,测试",
+      "class": "fa fa-bug fa-fw",
+      "show": true
+    },
+    {
+      "name": "日历表,时间,计划,记事本",
+      "class": "fa fa-calendar fa-fw",
+      "show": true
+    },
+    {
+      "name": "日历,签到,打卡",
+      "class": "fa fa-calendar-check-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "日历,挂单",
+      "class": "fa fa-calendar-minus-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "相机,照相机,拍照",
+      "class": "fa fa-camera fa-fw",
+      "show": true
+    },
+    {
+      "name": "审核,选择,对号,ok,sure",
+      "class": "fa fa-check fa-fw",
+      "show": true
+    },
+    {
+      "name": "删除,remove,错,叉,del",
+      "class": "fa fa-times fa-fw",
+      "show": true
+    },
+    {
+      "name": "下载,云",
+      "class": "fa fa-cloud-download fa-fw",
+      "show": true
+    },
+    {
+      "name": "上传,云",
+      "class": "fa fa-cloud-upload fa-fw",
+      "show": true
+    },
+    {
+      "name": "设置,设定,修理,配置,齿轮",
+      "class": "fa fa-cog fa-fw",
+      "show": true
+    },
+    {
+      "name": "设定,设置,查询,操作记录",
+      "class": "fa fa-cogs fa-fw",
+      "show": true
+    },
+    {
+      "name": "指南针,导航",
+      "class": "fa fa-compass fa-fw",
+      "show": true
+    },
+    {
+      "name": "方块,应用,盒子,模板",
+      "class": "fa fa-cube fa-fw",
+      "show": true
+    },
+    {
+      "name": "方块,应用,盒子,模板",
+      "class": "fa fa-cubes fa-fw",
+      "show": true
+    },
+    {
+      "name": "下载,获取,保存到本地,保存,另存为",
+      "class": "fa fa-download fa-fw",
+      "show": true
+    },
+    {
+      "name": "todo,写字,编辑,笔",
+      "class": "fa fa-pencil-square-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "信封,邮件,信息,邮箱,mail,email",
+      "class": "fa fa-envelope fa-fw",
+      "show": true
+    },
+    {
+      "name": "信封,邮件,信息,邮箱,mail,email",
+      "class": "fa fa-envelope-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "信封,打开",
+      "class": "fa fa-envelope-open fa-fw",
+      "show": true
+    },
+    {
+      "name": "信封,打开",
+      "class": "fa fa-envelope-open-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "兑换,对换,交换,合作",
+      "class": "fa fa-exchange fa-fw",
+      "show": true
+    },
+    {
+      "name": "眼睛,看,观察,公开,显示,展示",
+      "class": "fa fa-eye fa-fw",
+      "show": true
+    },
+    {
+      "name": "未公开,禁止观看,私密的,隐藏,不显示,不展示",
+      "class": "fa fa-eye-slash fa-fw",
+      "show": true
+    },
+    {
+      "name": "文件,文件夹,压缩包,压缩文件",
+      "class": "fa fa-file-archive-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "文件,声音文件,音频,声音",
+      "class": "fa fa-file-audio-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "文件,表格,office,需求",
+      "class": "fa fa-file-excel-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "文件,图像,图片,照片,picture",
+      "class": "fa fa-file-image-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "文件,视频,录像,摄像",
+      "class": "fa fa-file-video-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "文件",
+      "class": "fa fa-file-pdf-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "文件,office",
+      "class": "fa fa-file-word-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "过滤器,筛选,漏斗",
+      "class": "fa fa-filter fa-fw",
+      "show": true
+    },
+    {
+      "name": "文件夹,文件",
+      "class": "fa fa-folder fa-fw",
+      "show": true
+    },
+    {
+      "name": "文件夹",
+      "class": "fa fa-folder-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "打开,文件夹,网址导航",
+      "class": "fa fa-folder-open fa-fw",
+      "show": true
+    },
+    {
+      "name": "打开,文件夹",
+      "class": "fa fa-folder-open-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "历史,历史记录,刷新时间,更新,日志,定时",
+      "class": "fa fa-history fa-fw",
+      "show": true
+    },
+    {
+      "name": "家,首页,主页,房子,屋,建筑,index",
+      "class": "fa fa-home fa-fw",
+      "show": true
+    },
+    {
+      "name": "文件,图片,图像,相片,照片",
+      "class": "fa fa-picture-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "语言,多语言,翻译,语种,中文,英文",
+      "class": "fa fa-language fa-fw",
+      "show": true
+    },
+    {
+      "name": "定位,指针",
+      "class": "fa fa-location-arrow fa-fw",
+      "show": true
+    },
+    {
+      "name": "锁定,锁",
+      "class": "fa fa-lock fa-fw",
+      "show": true
+    },
+    {
+      "name": "撤销,离开",
+      "class": "fa fa-reply fa-fw",
+      "show": true
+    },
+    {
+      "name": "撤销,离开",
+      "class": "fa fa-reply-all fa-fw",
+      "show": true
+    },
+    {
+      "name": "地图,位置,定位,标记",
+      "class": "fa fa-map-marker fa-fw",
+      "show": true
+    },
+    {
+      "name": "话筒,录音,麦克风",
+      "class": "fa fa-microphone fa-fw",
+      "show": true
+    },
+    {
+      "name": "静音,禁止录音",
+      "class": "fa fa-microphone-slash fa-fw",
+      "show": true
+    },
+    {
+      "name": "减,移除",
+      "class": "fa fa-minus fa-fw",
+      "show": true
+    },
+    {
+      "name": "减,移除,禁止",
+      "class": "fa fa-minus-circle fa-fw",
+      "show": true
+    },
+    {
+      "name": "博士,学士,毕业,帽子,学历,学位,学识,知识",
+      "class": "fa fa-graduation-cap fa-fw",
+      "show": true
+    },
+    {
+      "name": "活动,发送,纸飞机,运行",
+      "class": "fa fa-paper-plane fa-fw",
+      "show": true
+    },
+    {
+      "name": "活动,发送,纸飞机,运行",
+      "class": "fa fa-paper-plane-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "绘画,修改,笔,铅笔,编辑,修改",
+      "class": "fa fa-pencil fa-fw",
+      "show": true
+    },
+    {
+      "name": "电话",
+      "class": "fa fa-phone fa-fw",
+      "show": true
+    },
+    {
+      "name": "飞机,旅途,旅程,旅游,出游,游玩",
+      "class": "fa fa-plane fa-fw",
+      "show": true
+    },
+    {
+      "name": "新增,增加,添加,insert,add",
+      "class": "fa fa-plus fa-fw",
+      "show": true
+    },
+    {
+      "name": "新增,增加,添加,insert,add",
+      "class": "fa fa-plus-circle fa-fw",
+      "show": true
+    },
+    {
+      "name": "新增,增加,添加,insert,add",
+      "class": "fa fa-plus-square fa-fw",
+      "show": true
+    },
+    {
+      "name": "新增,增加,添加,insert,add",
+      "class": "fa fa-plus-square-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "退出,关闭,关机",
+      "class": "fa fa-power-off fa-fw",
+      "show": true
+    },
+    {
+      "name": "打印,打印机,复印机,彩打机",
+      "class": "fa fa-print fa-fw",
+      "show": true
+    },
+    {
+      "name": "二维码",
+      "class": "fa fa-qrcode fa-fw",
+      "show": true
+    },
+    {
+      "name": "help,帮助,疑问,答疑,疑惑,问题,问号,咨询",
+      "class": "fa fa-question fa-fw",
+      "show": true
+    },
+    {
+      "name": "help,帮助,疑问,答疑,疑惑,问题,问号,咨询",
+      "class": "fa fa-question-circle fa-fw",
+      "show": true
+    },
+    {
+      "name": "help,帮助,疑问,答疑,疑惑,问题,问号,咨询",
+      "class": "fa fa-question-circle-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "搜索,查找,查询,检索",
+      "class": "fa fa-search fa-fw",
+      "show": true
+    },
+    {
+      "name": "分享",
+      "class": "fa fa-share-alt fa-fw",
+      "show": true
+    },
+    {
+      "name": "登录,登陆,login,进入,进来,进去",
+      "class": "fa fa-sign-in fa-fw",
+      "show": true
+    },
+    {
+      "name": "退出,exit,quit,离开,出去,出来",
+      "class": "fa fa-sign-out fa-fw",
+      "show": true
+    },
+    {
+      "name": "滑动条,滑块,移动,转移",
+      "class": "fa fa-sliders fa-fw",
+      "show": true
+    },
+    {
+      "name": "层级,等级,网站地图,树形,组织,架构",
+      "class": "fa fa-sitemap fa-fw",
+      "show": true
+    },
+    {
+      "name": "排序,上下,顺序,位序",
+      "class": "fa fa-sort fa-fw",
+      "show": true
+    },
+    {
+      "name": "加载,滚动条,等待,waiting,loading,转圈",
+      "class": "fa fa-spinner fa-fw",
+      "show": true
+    },
+    {
+      "name": "五角星,收藏,喜欢,星星",
+      "class": "fa fa-star fa-fw",
+      "show": true
+    },
+    {
+      "name": "标签",
+      "class": "fa fa-tag fa-fw",
+      "show": true
+    },
+    {
+      "name": "标签",
+      "class": "fa fa-tags fa-fw",
+      "show": true
+    },
+    {
+      "name": "上传,导入,导出",
+      "class": "fa fa-upload fa-fw",
+      "show": true
+    },
+    {
+      "name": "会员,用户,name,账号,人,user",
+      "class": "fa fa-user fa-fw",
+      "show": true
+    },
+    {
+      "name": "users,群组,用户,人",
+      "class": "fa fa-users fa-fw",
+      "show": true
+    },
+    {
+      "name": "user-plus,添加,增加,新增,绑定",
+      "class": "fa fa-user-plus fa-fw",
+      "show": true
+    },
+    {
+      "name": "user-times,删除,移除,解绑",
+      "class": "fa fa-user-times fa-fw",
+      "show": true
+    },
+    {
+      "name": "用户,头像,人,user",
+      "class": "fa fa-user-circle-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "用户,个人,我的,user",
+      "class": "fa fa-user-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "扳手,钳,维修,设置,修复,维护",
+      "class": "fa fa-wrench fa-fw",
+      "show": true
+    },
+    {
+      "name": "同步,刷新,重新,更新",
+      "class": "fa fa-refresh fa-fw",
+      "show": true
+    },
+    {
+      "name": "a,链接,关联,地址,网址,连接,绑定",
+      "class": "fa fa-link fa-fw",
+      "show": true
+    },
+    {
+      "name": "断开,解绑,取消链接",
+      "class": "fa fa-unlink fa-fw",
+      "show": true
+    },
+    {
+      "name": "保存,另存为",
+      "class": "fa fa-save fa-fw",
+      "show": true
+    },
+    {
+      "name": "折叠向下,向下,下,箭头,方向,展开,下拉,更多",
+      "class": "fa fa-angle-double-down fa-fw",
+      "show": true
+    },
+    {
+      "name": "折叠向左,向左,左,箭头,方向",
+      "class": "fa fa-angle-double-left fa-fw",
+      "show": true
+    },
+    {
+      "name": "折叠向右,向右,右,箭头,方向,展开,更多",
+      "class": "fa fa-angle-double-right fa-fw",
+      "show": true
+    },
+    {
+      "name": "折叠向上,向上,上,箭头,方向,合起,上拉,收起",
+      "class": "fa fa-angle-double-up fa-fw",
+      "show": true
+    },
+    {
+      "name": "向下,下,箭头,方向,展开,下拉,更多,倒三角",
+      "class": "fa fa-angle-down fa-fw",
+      "show": true
+    },
+    {
+      "name": "向左,左,箭头,方向,左三角",
+      "class": "fa fa-angle-left fa-fw",
+      "show": true
+    },
+    {
+      "name": "向右,右,箭头,方向,展开,更多,右三角",
+      "class": "fa fa-angle-right fa-fw",
+      "show": true
+    },
+    {
+      "name": "向上,上,箭头,方向,合起,上拉,收起,上三角",
+      "class": "fa fa-angle-up fa-fw",
+      "show": true
+    },
+    {
+      "name": "向下,下,箭头,方向",
+      "class": "fa fa-arrow-down fa-fw",
+      "show": true
+    },
+    {
+      "name": "向左,左,箭头,方向",
+      "class": "fa fa-arrow-left fa-fw",
+      "show": true
+    },
+    {
+      "name": "向右,右,箭头,方向",
+      "class": "fa fa-arrow-right fa-fw",
+      "show": true
+    },
+    {
+      "name": "向上,上,箭头,方向",
+      "class": "fa fa-arrow-up fa-fw",
+      "show": true
+    },
+    {
+      "name": "向下,下,箭头,方向,展开,下拉,更多,倒三角",
+      "class": "fa fa-caret-down fa-fw",
+      "show": true
+    },
+    {
+      "name": "向左,左,箭头,方向,左三角",
+      "class": "fa fa-caret-left fa-fw",
+      "show": true
+    },
+    {
+      "name": "向右,右,箭头,方向,展开,更多,右三角",
+      "class": "fa fa-caret-right fa-fw",
+      "show": true
+    },
+    {
+      "name": "向上,上,箭头,方向,合起,上拉,收起,上三角",
+      "class": "fa fa-caret-up fa-fw",
+      "show": true
+    },
+    {
+      "name": "向下,下,箭头,方向,展开,下拉,更多,倒三角",
+      "class": "fa fa-chevron-down fa-fw",
+      "show": true
+    },
+    {
+      "name": "向左,左,箭头,方向,左三角",
+      "class": "fa fa-chevron-left fa-fw",
+      "show": true
+    },
+    {
+      "name": "向右,右,箭头,方向,展开,更多,右三角",
+      "class": "fa fa-chevron-right fa-fw",
+      "show": true
+    },
+    {
+      "name": "向上,上,箭头,方向,合起,上拉,收起,上三角",
+      "class": "fa fa-chevron-up fa-fw",
+      "show": true
+    },
+    {
+      "name": "安卓,机器人",
+      "class": "fa fa-android fa-fw",
+      "show": true
+    },
+    {
+      "name": "苹果,mac,ipad,macbook,ios,iphone",
+      "class": "fa fa-apple fa-fw",
+      "show": true
+    },
+    {
+      "name": "ie,浏览器",
+      "class": "fa fa-internet-explorer fa-fw",
+      "show": true
+    },
+    {
+      "name": "love,心,爱心,喜欢,收藏",
+      "class": "fa fa-heart fa-fw",
+      "show": true
+    },
+    {
+      "name": "love,心,爱心,喜欢",
+      "class": "fa fa-heart-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "垃圾,垃圾桶,删除,移除,清除",
+      "class": "fa fa-trash fa-fw",
+      "show": true
+    },
+    {
+      "name": "树,森林,绿化,tree",
+      "class": "fa fa-tree fa-fw",
+      "show": true
+    },
+    {
+      "name": "beer,啤酒,杯子,啤酒杯,玻璃杯",
+      "class": "fa fa-beer fa-fw",
+      "show": true
+    },
+    {
+      "name": "rmb,人民币,钱,货币,交易",
+      "class": "fa fa-rmb fa-fw",
+      "show": true
+    },
+    {
+      "name": "dollar,美元,钱,货币,金额,交易,符号",
+      "class": "fa fa-dollar fa-fw",
+      "show": true
+    },
+    {
+      "name": "file,text,新闻,文件,文章",
+      "class": "fa fa-file-text fa-fw",
+      "show": true
+    },
+    {
+      "name": "file,text,新闻,文件,文章",
+      "class": "fa fa-file-text-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "排序,升序,sort,asc",
+      "class": "fa fa-sort-amount-asc fa-fw",
+      "show": true
+    },
+    {
+      "name": "排序,降序,sort,desc",
+      "class": "fa fa-sort-amount-desc fa-fw",
+      "show": true
+    }
+  ]
+}
