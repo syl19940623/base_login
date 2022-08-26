@@ -3,7 +3,7 @@
     <div class="left">
       <div class="logo" :style="{width: collapse ? '64px' : '256px', padding: collapse ? '11px 8px' : '11px 0 11px 20px'}">
         <img src="@/assets/img/hblogo.png" alt="" class="logoIcon">
-        <h1 class="logoName">互邦软件平台</h1>
+        <h1 class="logoName">{{systemName}}</h1>
       </div>
       <SideMenu :collapse="collapse" :selectedKey="selectedKey" :sideMenuList="sideMenuList" @sideMenuClick="sideMenuClick"></SideMenu>
     </div>
@@ -56,19 +56,23 @@
       </div>
       <div class="content">
         <div class="iframeContainer">
-          <template v-for="(item, index) in crumbList">
-            <iframe v-show="crumbActiveIndex === index" :src="item.urlAddress" :key="item.id" frameborder="0"></iframe>
-          </template>
+          <iframe
+            v-for="(item, index) in crumbList"
+            v-show="crumbActiveIndex === index"
+            :key="item.id"
+            :src="item.urlAddress"
+            frameborder="0">
+          </iframe>
         </div>
       </div>
     </div>
     <LockScreen :show.sync="lockScreenShow"></LockScreen>
-    <ChangeSystem :show.sync="changeSystemShow"></ChangeSystem>
+    <ChangeSystem :show.sync="changeSystemShow" @changeSubSystem="changeSubSystem"></ChangeSystem>
     <Watermark :show="watermarkShow"></Watermark>
     <Dialog
       title="修改密码"
       width="450px"
-      :btn="['保存', '取消']"
+      :btn="!forceUpdatePassword ? ['保存', '取消'] : ['保存']"
       :show.sync="updatePasswordShow"
       :show-close="false"
       @dialogOperate="updatePasswordDialogOperate">
@@ -170,7 +174,10 @@
           }
         },
         updatePasswordFormData: {},
-        socket: null
+        socket: null,
+        systemName: '',
+        currentProjectUrl: '',
+        currentProjectName: ''
       }
     },
     methods: {
@@ -202,6 +209,7 @@
           }
         }
         if (pushFlag) {
+          item.urlAddress = item.urlAddress.indexOf('http') == -1 ? this.currentProjectUrl + this.currentProjectName + item.urlAddress : item.urlAddress
           this.crumbList.push(item)
           this.crumbActiveIndex = this.crumbList.length - 1
         }
@@ -231,6 +239,15 @@
           this.crumbList.length = 1
           this.crumbActiveIndex = 0
         }
+      },
+      changeSubSystem(data) {
+        this.systemName = data.currentSystemName
+        this.currentProjectUrl = data.currentProjectUrl
+        this.currentProjectName = data.currentProjectName
+        this.crumbActiveIndex = 0
+        this.crumbList.splice(1, this.crumbList.length - 1)
+        this.changeSystemShow = false
+        this.loadSideMenu('')
       },
       lockScreen() {
         this.$store.commit('updateLockScreen', true)
@@ -312,23 +329,38 @@
         this.socket.close()
       }
     },
+    created() {
+      this.$post('common/getLoginSystemInfo').then(res => {
+        if (res.code == 0) {
+          this.showName = this.$store.state.personalInfo.showName
+          this.watermarkShow = this.$store.state.personalInfo.watermarkFlag
+          this.forceUpdatePassword = this.$store.state.personalInfo.userPassFlag
+
+          if (this.$store.state.lockScreen) {
+            this.lockScreenShow = true
+          }
+
+          // 存储角色按钮权限
+          this.$store.commit('saveRoleBtns', res.data.roleButtons)
+
+          // 加载当前系统信息
+          this.currentProjectUrl = res.data.currentProjectUrl
+          this.currentProjectName = res.data.currentProjectName
+          if (res.data.jumpMode == 'frame') {
+            this.systemName = res.data.currentSystemName
+            this.loadSideMenu('')
+          } else {
+            // 跳转其它系统
+          }
+        }
+      })
+    },
     mounted() {
       Bus.$on('tokenFail', target => {
         this.socketClose()
       });
 
       this.socketInit()
-
-      this.showName = this.$store.state.personalInfo.showName
-      this.watermarkShow = this.$store.state.personalInfo.watermarkFlag
-      this.forceUpdatePassword = this.$store.state.personalInfo.userPassFlag
-
-      if (this.$store.state.lockScreen) {
-        this.lockScreenShow = true
-      }
-
-      // 加载侧边栏菜单
-      this.loadSideMenu('')
 
       // 新建Tab页
       window.addEventListener('message',e => {

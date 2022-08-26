@@ -14,7 +14,8 @@ export default new Vuex.Store({
     personalInfo: {},
     personalExtendInfo: {},
     account: '',
-    lockScreen: false
+    lockScreen: false,
+    roleBtns: []
   },
   mutations: {
     saveToken(state, data) {
@@ -29,6 +30,9 @@ export default new Vuex.Store({
     },
     updateLockScreen(state, bool) {
       state.lockScreen = bool
+    },
+    saveRoleBtns(state, data) {
+      state.roleBtns = data
     }
   },
   actions: {
