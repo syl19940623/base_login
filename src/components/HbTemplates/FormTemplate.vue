@@ -54,18 +54,18 @@
         event: 'save'
       })
 
-      // this.$post(this.data.templateConfig.byIdInterface).then(res => {
-      //   if (res.code == 0) {
-      //     this.currentId = res.data.id_prikey
-      //     for (let v of this.data.formList) {
-      //       if (v.type == 'switch') {
-      //         this.hbFormData[v.prop] = res.data[v.prop] == 0
-      //       } else {
-      //         this.hbFormData[v.prop] = res.data[v.prop]
-      //       }
-      //     }
-      //   }
-      // })
+      this.$post(this.data.templateConfig.byIdInterface).then(res => {
+        if (res.code == 0) {
+          this.currentId = res.data.id_prikey
+          for (let v of this.data.formList) {
+            if (v.type == 'switch') {
+              this.hbFormData[v.prop] = res.data[v.prop] == 0
+            } else {
+              this.hbFormData[v.prop] = res.data[v.prop]
+            }
+          }
+        }
+      })
     }
   }
 </script>

@@ -71,17 +71,17 @@
 </script>
 
 <style lang="less" scoped>
-  .crumbOut{background: #fff;height: 40px;display: flex;overflow-x: auto;overflow-y: hidden;box-shadow: 0 6px 8px rgb(0 33 64 / 5%);scroll-behavior: smooth;
+  .crumbOut{background: #fff;height: 40px;display: flex;overflow-x: auto;overflow-y: hidden;scroll-behavior: smooth;
     li{padding: 0 35px;line-height: 40px;cursor: pointer;position: relative;white-space: nowrap;
       i{color: #666;position: absolute;top: 48%;right: 10px;transform: translateY(-50%);opacity: 0;font-size: 16px;}
     }
-    li::before{content: '';width: 1px;height: 40%;background: #d9d9d9;position: absolute;top: 50%;right: 0;transform: translateY(-50%);}
+    li::before{content: '';width: 1px;height: 40%;background: var(--border-color);position: absolute;top: 50%;right: 0;transform: translateY(-50%);}
     li:hover{color: var(--primary);
       i{color: var(--primary);opacity: 1;}
     }
-    li:hover::after{content: '';width: 20%;height: 2px;background: var(--primary);position: absolute;left: 50%;bottom: 0;transform: translateX(-50%);}
+    li:hover::after{content: '';width: 20%;height: 2px;background: var(--primary);position: absolute;left: 50%;bottom: 1px;transform: translateX(-50%);}
     .crumbActive{color: var(--primary);}
-    .crumbActive::after {content: '';width: 20%;height: 2px;background: var(--primary);position: absolute;left: 50%;bottom: 0;transform: translateX(-50%);}
+    .crumbActive::after {content: '';width: 20%;height: 2px;background: var(--primary);position: absolute;left: 50%;bottom: 1px;transform: translateX(-50%);}
     .crumbMenuMask{width: 100%;height: 100%;position: fixed;top: 0;left: 0;z-index: 999;
       .crumbMenu{width: 140px;background: #fff;position: fixed;top: 0;left: 0;box-shadow: 0 0 4px 2px rgba(0, 0, 0, .1);
         .crumbMenuItem{line-height: 40px;border-bottom: 1px solid #F2F6FC;text-align: center;cursor: pointer;}

@@ -1,6 +1,6 @@
 <template>
   <transition name="dialog-fade">
-    <div class="formDesign">
+    <div class="formDesign" v-if="show">
       <div class="title">
         <el-form :inline="true">
           <el-form-item size="medium">
@@ -275,9 +275,9 @@
     components: {
       draggable
     },
-    // props: {
-    //   show: Boolean
-    // },
+    props: {
+      show: Boolean
+    },
     data() {
       return {
         setting: {
@@ -512,11 +512,7 @@
             if (v.dataResource == 'interface') {
               this.$post(v.interface).then(res => {
                 if (res.code == 0) {
-                  if (['select', 'cascader'].includes(v.type)) {
-                    v.options = res.data
-                  } else {
-                    v.list = res.data
-                  }
+                  v[['select', 'cascader'].includes(v.type) ? 'options' : 'list'] = res.data
                   console.log(JSON.stringify(sendData))
                   // this.$post('', {
                   //   data: sendData
@@ -532,7 +528,7 @@
         }
       },
       close() {
-        // this.$emit('update:show', false)
+        this.$emit('update:show', false)
         this.empty()
       }
     }
