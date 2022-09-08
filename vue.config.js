@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const splitChunks = false;
 
 module.exports = {
   chainWebpack: config => {
@@ -23,6 +24,31 @@ module.exports = {
         target: 'http://192.168.0.12:9000',
         ws: false,
         changeOrigin: true
+      }
+    }
+  },
+  configureWebpack: config => {
+    if (splitChunks) {
+      return {
+        optimization: {
+          runtimeChunk: 'single',
+          splitChunks: {
+            chunks: 'all',
+            maxInitialRequests: Infinity,
+            minSize: 20000,
+            maxSize: 60000,
+            cacheGroups: {
+              vendors: {
+                test: /[\\/]node_modules[\\/]/,
+                priority: -10,
+                name(module) {
+                  const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
+                  return `npm.${packageName.replace('@', '')}`
+                },
+              },
+            },
+          }
+        }
       }
     }
   },

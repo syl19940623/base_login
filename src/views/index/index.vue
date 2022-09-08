@@ -81,6 +81,7 @@
       </template>
     </Dialog>
     <PersonalInfo ref="personalInfoRef"></PersonalInfo>
+    <HbChat></HbChat>
   </div>
 </template>
 
@@ -93,6 +94,7 @@
   import Dialog from "@/components/Dialog/Dialog";
   import HbForm from "@/components/HbForm/HbForm";
   import PersonalInfo from './personalInfo/personalInfo';
+  import HbChat from '@/components/HbChat/Index';
   import { util } from "@/utils/util";
   import Bus from "@/utils/eventBus";
   import md5 from "js-md5";
@@ -108,7 +110,8 @@
       Watermark,
       Dialog,
       HbForm,
-      PersonalInfo
+      PersonalInfo,
+      HbChat
     },
     data() {
       const validateNewPass = (rule, value, callback) => {
