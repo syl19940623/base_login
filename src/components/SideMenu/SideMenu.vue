@@ -55,7 +55,9 @@
     },
     mounted() {
       setTimeout(() => {
-        this.openKeys = [this.sideMenuList[0].id]
+        if (this.sideMenuList.length > 0) {
+          this.openKeys = [this.sideMenuList[0].id]
+        }
       }, 300)
     }
   }

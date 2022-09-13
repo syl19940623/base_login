@@ -50,8 +50,9 @@ a:hover {
 }
 
 img {
-	/*vertical-align: baseline;*/
-	vertical-align: bottom;
+	width: 100%;
+	display: block;
+	vertical-align: baseline;
 }
 
 input,

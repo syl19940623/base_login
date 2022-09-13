@@ -1,10 +1,10 @@
 <template>
-
+  <div>UserContent</div>
 </template>
 
 <script>
 export default {
-  name: "Chat"
+  name: "UserContent"
 }
 </script>
 

@@ -34,13 +34,14 @@ module.exports = {
           runtimeChunk: 'single',
           splitChunks: {
             chunks: 'all',
+            minSize: 1024 * 10,
+            maxSize: 1024 * 50,
             maxInitialRequests: Infinity,
-            minSize: 20000,
-            maxSize: 60000,
             cacheGroups: {
               vendors: {
                 test: /[\\/]node_modules[\\/]/,
                 priority: -10,
+                reuseExistingChunk: true,
                 name(module) {
                   const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
                   return `npm.${packageName.replace('@', '')}`
