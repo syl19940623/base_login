@@ -6,7 +6,7 @@
         <input type="text" placeholder="搜索">
       </div>
       <div class="list hideScrollBar">
-        <div v-for="item in 10" :class="['listItem', item === activeId ? 'active' : '']" @click="activeId = item">
+        <div v-for="item in list" :key="item.id" :class="['listItem', item.id === activeId ? 'active' : '']" @click="userChange(item)">
           <div class="img">
             <img src="../../../assets/img/avatar.png" alt="">
           </div>
@@ -21,7 +21,8 @@
       </div>
     </div>
     <div class="content">
-      <ChatContent></ChatContent>
+      <ChatContent :userData="userData" v-if="activeId"></ChatContent>
+      <el-empty style="padding-top: 160px;" v-else></el-empty>
     </div>
   </div>
 </template>
@@ -36,7 +37,28 @@
     },
     data() {
       return {
-        activeId: 1
+        activeId: '',
+        list: [
+          {
+            id: 1,
+            name: '张三三',
+            time: '16:53',
+            content: '这是一段内容这是一段内容这是一段内容这是一段内容这是一段内容'
+          },
+          {
+            id: 2,
+            name: '李四',
+            time: '昨天',
+            content: '昨天内容'
+          }
+        ],
+        userData: {}
+      }
+    },
+    methods: {
+      userChange(data) {
+        this.userData = data
+        this.activeId = data.id
       }
     }
   }

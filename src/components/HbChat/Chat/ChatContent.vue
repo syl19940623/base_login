@@ -1,14 +1,14 @@
 <template>
   <div class="container">
     <div class="title">
-      <div class="name">史永亮</div>
+      <div class="name">{{userData.name}}</div>
       <ul class="operateMenu">
         <li>
           <i class="el-icon-close"></i>
         </li>
       </ul>
     </div>
-    <div class="content">
+    <div class="content" ref="content">
       <template v-for="item in 30">
         <div class="contentLeft" v-if="item % 2 === 0">
           <div class="img">
@@ -57,9 +57,38 @@
 <script>
   export default {
     name: "ChatContent",
+    props: {
+      userData: Object
+    },
+    data() {
+      return {
+        content: []
+      }
+    },
     methods: {
       sendFile(event) {
         console.log(event)
+      }
+    },
+    watch: {
+      'userData.id': {
+        handler(newVal, oldVal) {
+          if (newVal) {
+            this.$post('123', {
+              id: newVal
+            }).then(res => {
+              if (res.code === 0) {
+                this.content = res.data
+                this.$nextTick(() => {
+                  this.$refs.content.scrollTo(0, this.$refs.content.scrollHeight)
+                })
+              }
+            })
+          } else {
+            this.content = []
+          }
+        },
+        immediate: true
       }
     }
   }

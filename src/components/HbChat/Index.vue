@@ -23,7 +23,9 @@
         </div>
       </div>
       <div class="main">
-        <component :is="listComponent"></component>
+        <keep-alive>
+          <component :is="listComponent"></component>
+        </keep-alive>
       </div>
     </div>
     </transition>
