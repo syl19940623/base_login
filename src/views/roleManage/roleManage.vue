@@ -145,7 +145,7 @@
         operateRoleFormData: {
           name: '',
           showName: '',
-          disabled: false
+          disabled: ''
         },
         currentId: '',
         bindUserShow: false,

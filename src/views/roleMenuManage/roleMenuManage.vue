@@ -25,7 +25,7 @@
   import HbTree from "@/components/HbTree/HbTree";
 
   export default {
-    name: 'RoleMenuManage',
+    name: 'roleMenuManage',
     components: {
       HbTable,
       HbTree

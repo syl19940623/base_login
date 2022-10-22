@@ -10,7 +10,7 @@
 
 <script>
   export default {
-    name: "TreeMenu",
+    name: "treeMenu",
     props: {
       show: Boolean,
       data: Object

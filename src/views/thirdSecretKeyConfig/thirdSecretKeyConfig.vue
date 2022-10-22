@@ -52,7 +52,7 @@
   import { util } from "@/utils/util";
 
   export default {
-    name: "ThirdSecretKeyConfig",
+    name: "thirdSecretKeyConfig",
     data() {
       return {
         tableData: []

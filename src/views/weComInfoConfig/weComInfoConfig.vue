@@ -30,7 +30,7 @@
 
 <script>
   export default {
-    name: "WeComInfoConfig",
+    name: "weComInfoConfig",
     data() {
       return {
         deptList: [],

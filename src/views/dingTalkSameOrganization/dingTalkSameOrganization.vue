@@ -36,7 +36,7 @@
   import HbTable from "@/components/HbTable/HbTable";
 
   export default {
-    name: "DingTalkSameOrganization",
+    name: "dingTalkSameOrganization",
     components: {
       HbTree,
       HbTable

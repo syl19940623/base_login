@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="title">
-      <div class="name">{{userData.name}}</div>
+      <div class="name">{{userData.sendName}}</div>
       <ul class="operateMenu">
         <li>
           <i class="el-icon-close"></i>
@@ -9,18 +9,20 @@
       </ul>
     </div>
     <div class="content" ref="content">
-      <template v-for="item in 30">
-        <div class="contentLeft" v-if="item % 2 === 0">
+      <template v-for="item in content">
+        <div class="contentLeft" v-if="item.acceptNo === userData.sendNo">
           <div class="img">
-            <img src="../../../assets/img/avatar.png" alt="">
+            <img src="../../../assets/img/avatar.png" alt="" v-if="item.avatar">
+            <div class="txtImg" v-else>{{item.acceptName.slice(-1)}}</div>
           </div>
-          <div class="txt">{{item}}</div>
+          <div class="txt" v-html="item.content"></div>
         </div>
         <div class="contentRight" v-else>
           <div class="img">
-            <img src="../../../assets/img/avatar.png" alt="">
+            <img src="../../../assets/img/avatar.png" alt="" v-if="item.avatar">
+            <div class="txtImg" v-else>{{item.sendName.slice(-1)}}</div>
           </div>
-          <div class="txt">{{item}}</div>
+          <div class="txt" v-html="item.content"></div>
         </div>
       </template>
     </div>
@@ -46,9 +48,9 @@
       </ul>
     </div>
     <div class="send">
-      <div class="sendContent" contenteditable="true" ref="chatContent"></div>
+      <div class="sendContent" contenteditable="true" ref="chatContent" @keydown.enter="sendContent"></div>
       <div class="sendBtn">
-        <el-button type="primary" size="small">发送 (Enter)</el-button>
+        <el-button type="primary" size="small" @click="sendContent">发送 (Enter)</el-button>
       </div>
     </div>
   </div>
@@ -62,30 +64,50 @@
     },
     data() {
       return {
+        page: 1,
         content: []
       }
     },
     methods: {
+      loadContent(callback) {
+        this.$post('chatContent/getPagingChatInfo', {
+          acceptNo: this.userData.sendNo,
+          page: this.page,
+          limit: 10
+        }).then(res => {
+          if (res.code === 0) {
+            const data = res.data
+            this.content.push(...data)
+            this.$nextTick(() => {
+              callback && callback()
+            })
+          }
+        })
+      },
       sendFile(event) {
         console.log(event)
+      },
+      sendContent() {
+
+      }
+    },
+    mounted() {
+      this.$refs.content.onscroll = () => {
+        if (this.$refs.content.scrollTop < 30) {
+          this.page++
+          this.loadContent()
+        }
       }
     },
     watch: {
-      'userData.id': {
+      'userData.sendNo': {
         handler(newVal, oldVal) {
+          this.page = 1
+          this.content = []
           if (newVal) {
-            this.$post('123', {
-              id: newVal
-            }).then(res => {
-              if (res.code === 0) {
-                this.content = res.data
-                this.$nextTick(() => {
-                  this.$refs.content.scrollTo(0, this.$refs.content.scrollHeight)
-                })
-              }
+            this.loadContent(() => {
+              this.$refs.content.scrollTo(0, this.$refs.content.scrollHeight)
             })
-          } else {
-            this.content = []
           }
         },
         immediate: true
@@ -106,7 +128,9 @@
     }
     .content{flex: 1;overflow-y: auto;padding: 15px;
       .contentLeft{overflow: hidden;width: calc(100% - 50px);margin-bottom: 15px;float: left;
-        .img{width: 40px;height: 40px;background: #fff;border-radius: 2px;overflow: hidden;float: left;cursor: pointer;}
+        .img{width: 40px;height: 40px;background: #fff;border-radius: 2px;overflow: hidden;float: left;cursor: pointer;
+          .txtImg{width: 40px;height: 40px;line-height: 40px;text-align: center;font-size: 18px;font-weight: bold;background: var(--primary);color: #fff;}
+        }
         .txt{float: left;background: #fff;border-radius: 2px;padding: 8px;margin-left: 10px;position: relative;max-width: calc(100% - 50px);line-height: 24px;word-wrap: break-word;word-break: break-all;
           &::after{content: '';border-right: 6px solid #fff;border-top: 5px solid transparent;border-bottom: 5px solid transparent;position: absolute;top: 15px;left: -6px;}
         }
@@ -115,7 +139,9 @@
         }
       }
       .contentRight{overflow: hidden;width: calc(100% - 50px);margin-bottom: 15px;float: right;
-        .img{width: 40px;height: 40px;background: #fff;border-radius: 2px;overflow: hidden;float: right;cursor: pointer;}
+        .img{width: 40px;height: 40px;background: #fff;border-radius: 2px;overflow: hidden;float: right;cursor: pointer;
+          .txtImg{width: 40px;height: 40px;line-height: 40px;text-align: center;font-size: 18px;font-weight: bold;background: var(--primary);color: #fff;}
+        }
         .txt{float: right;background: #409EFF;border-radius: 2px;padding: 8px;margin-right: 10px;position: relative;max-width: calc(100% - 50px);line-height: 24px;word-wrap: break-word;word-break: break-all;
           &::after{content: '';border-left: 6px solid #409EFF;border-top: 5px solid transparent;border-bottom: 5px solid transparent;position: absolute;top: 15px;right: -6px;}
         }

@@ -57,7 +57,7 @@
   import { util } from "@/utils/util";
 
   export default {
-    name: "DictionaryTableConfig",
+    name: "dictionaryTableConfig",
     components: {
       HbTable,
       Dialog

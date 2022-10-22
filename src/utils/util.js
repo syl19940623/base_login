@@ -136,6 +136,30 @@ function axiosCb(res, sCb, fCb) {
   }
 }
 
+// 时间转换
+function timeAgo(datetime) {
+  const now = new Date()
+  const datetimeStamp = new Date(datetime).getTime()
+  const todayInitStamp = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate() + ' 00:00:00'
+  const oneDayMs = 1000 * 60 * 60 * 24
+  const arr = ['昨天', '前天', '3天前', '4天前', '5天前', '6天前', '7天前']
+  if (datetimeStamp >= todayInitStamp) {
+    return datetime.split(' ')[1]
+  } else {
+    const dayNum = parseInt((todayInitStamp - datetimeStamp) / oneDayMs)
+    if (dayNum < 7) {
+      return arr[dayNum]
+    } else {
+      const date = datetime.split(' ')[0]
+      if (new Date(datetime).getFullYear() === now.getFullYear()) {
+        return date.slice(5).replace('-', '/')
+      } else {
+        return date.slice(2).replace('-', '/')
+      }
+    }
+  }
+}
+
 export const util = {
   checkPhone,
   checkMail,
@@ -148,5 +172,6 @@ export const util = {
   randomInteger,
   copyStr,
   deepClone,
-  axiosCb
+  axiosCb,
+  timeAgo
 }

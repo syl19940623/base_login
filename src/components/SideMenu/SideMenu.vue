@@ -53,12 +53,17 @@
         this.$emit('sideMenuClick', item)
       }
     },
-    mounted() {
-      setTimeout(() => {
-        if (this.sideMenuList.length > 0) {
-          this.openKeys = [this.sideMenuList[0].id]
+    computed: {
+      hasSideMenu() {
+        return this.sideMenuList;
+      }
+    },
+    watch: {
+      hasSideMenu(newVal, oldVal) {
+        if (newVal.length > 0) {
+          this.openKeys = [newVal[0].id]
         }
-      }, 300)
+      }
     }
   }
 </script>

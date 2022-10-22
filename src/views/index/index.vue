@@ -81,7 +81,7 @@
       </template>
     </Dialog>
     <PersonalInfo ref="personalInfoRef"></PersonalInfo>
-    <HbChat></HbChat>
+    <!-- <HbChat></HbChat> -->
   </div>
 </template>
 
@@ -235,7 +235,7 @@
           this.closeCurrentCrumb(index)
         } else if (type == 'other') {
           const newCrumbList = []
-          newCrumbList.push(crumbList[0], crumbList[index])
+          newCrumbList.push(this.crumbList[0], this.crumbList[index])
           this.crumbList = newCrumbList
           this.crumbActiveIndex = index == 0 ? index : 1
         } else if (type == 'all') {

@@ -36,7 +36,7 @@
   import HbTable from "@/components/HbTable/HbTable";
 
   export default {
-    name: "WeComSameOrganization",
+    name: "weComSameOrganization",
     components: {
       HbTree,
       HbTable

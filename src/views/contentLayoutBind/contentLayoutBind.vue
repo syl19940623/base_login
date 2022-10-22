@@ -29,7 +29,7 @@
   import HbTree from "@/components/HbTree/HbTree";
 
   export default {
-    name: "ContentLayoutBind",
+    name: "contentLayoutBind",
     components: {
       Dialog,
       HbTree

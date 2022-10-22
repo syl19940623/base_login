@@ -17,7 +17,7 @@
   import { util } from "@/utils/util";
 
   export default {
-    name: "SystemLog",
+    name: "systemLog",
     components: {
       HbTable
     },

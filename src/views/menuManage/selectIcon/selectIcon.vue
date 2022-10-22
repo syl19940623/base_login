@@ -9,7 +9,7 @@
         <el-input placeholder="请输入图标关键字" clearable v-model="iconKw"></el-input>
       </div>
       <div class="selectIconContent hideScrollBar">
-        <div class="selectIconBox" v-for="(item, index) in iconListData" :key="index" v-show="item.show" @click="selectIcon(item.class)">
+        <div class="selectIconBox" v-for="(item, index) in iconListData" :key="index" v-if="item.show" @click="selectIcon(item.class)">
           <el-tooltip class="item" effect="dark" :content="item.name" placement="bottom">
             <i :class="item.class"></i>
           </el-tooltip>
@@ -23,7 +23,7 @@
   import iconList from '@/assets/js/iconList.json';
 
   export default {
-    name: "SelectIcon",
+    name: "selectIcon",
     props: {
       show: Boolean,
       data: Object

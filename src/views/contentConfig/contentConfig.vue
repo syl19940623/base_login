@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: "ContentConfig"
+    name: "contentConfig"
   }
 </script>
 

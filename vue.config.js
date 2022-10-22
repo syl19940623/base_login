@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const splitChunks = false;
+const splitChunks = true;
 
 module.exports = {
   chainWebpack: config => {
@@ -16,9 +16,9 @@ module.exports = {
         target: 'http://192.168.0.23',
         ws: false,
         changeOrigin: true,
-        // pathRewrite: {
-        //   '^/api': '/'
-        // }
+        pathRewrite: {
+          '^/api': '/'
+        }
       },
       '/uploadresources': {
         target: 'http://192.168.0.12:9000',
