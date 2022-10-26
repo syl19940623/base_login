@@ -156,6 +156,7 @@
               type: 'cascader',
               showAllLevels: false,
               filterable: true,
+              props: { checkStrictly: true },
               options: []
             },
             {

@@ -238,9 +238,11 @@
           newCrumbList.push(this.crumbList[0], this.crumbList[index])
           this.crumbList = newCrumbList
           this.crumbActiveIndex = index == 0 ? index : 1
+          this.selectedKey = this.crumbList[this.crumbActiveIndex].id
         } else if (type == 'all') {
           this.crumbList.length = 1
           this.crumbActiveIndex = 0
+          this.selectedKey = ''
         }
       },
       changeSubSystem(data) {
@@ -360,10 +362,10 @@
     },
     mounted() {
       Bus.$on('tokenFail', target => {
-        this.socketClose()
+        // this.socketClose()
       });
 
-      this.socketInit()
+      // this.socketInit()
 
       // 新建Tab页
       window.addEventListener('message',e => {
@@ -384,7 +386,7 @@
     },
     beforeRouteLeave(to, from ,next) {
       if (to.path == '/login') {
-        this.socketClose()
+        // this.socketClose()
       }
       next()
     }
@@ -401,17 +403,19 @@
       .sideMenu{height: calc(100vh - 64px);}
     }
     .right{flex: 1;
-      .topNav{height: 64px;background: #fff;border-bottom: 1px solid var(--border-color);
+      .topNav{height: 65px;background: #fff;border-bottom: 1px solid var(--border-color);
         .leftNav{float: left;}
-        .rightNav{float: right;}
+        .rightNav{float: right;
+          :deep(.el-dropdown){display: block;}
+        }
         li{float: left;line-height: 64px;cursor: pointer;padding: 0 15px;font-size: 18px;
           i{line-height: 60px;}
         }
         li:hover{background: var(--bg);}
       }
       .crumb{height: 40px;}
-      .content{height: calc(100% - 104px);padding: 10px;background: var(--bg);
-        .iframeContainer{background: #fff;height: calc(100vh - 124px);box-shadow: 0 0 8px 2px rgba(0,0,0,.05);
+      .content{height: calc(100% - 105px);padding: 10px;background: var(--bg);
+        .iframeContainer{background: #fff;height: calc(100vh - 125px);box-shadow: 0 0 8px 2px rgba(0,0,0,.05);
           iframe{width: 100%;height: 100%;}
         }
       }

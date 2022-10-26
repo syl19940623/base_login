@@ -87,8 +87,8 @@
         :highlight-current-row="true"
         :height="calcTableHeightResult"
         :row-class-name="rowClassName"
-        v-loading="tableData.loading"
-        @row-click="rowClick">
+        @row-click="rowClick"
+        @selection-change="selectionChange">
         <!-- 第一列 -->
         <el-table-column
           v-if="firstColumnType == 'index'"
@@ -213,7 +213,8 @@
         pageSize: 20,
         pageSizeArr: [10, 20, 30, 50, 100],
         calcTableHeightResult: null,
-        barWidth: 0
+        barWidth: 0,
+        allCheckedRows: []
       }
     },
     methods: {
@@ -228,6 +229,9 @@
           this.pageNum = 1
         }
         this.$emit(event)
+      },
+      selectionChange(selection) {
+        this.allCheckedRows = selection
       },
       rowClick(row, column, event) {
         this.$emit('rowClick', row, column, event)
@@ -291,5 +295,5 @@
 </style>
 
 <style lang="less">
-  .el-popconfirm__main{margin: 12px 0;}
+  .el-popconfirm__main{margin: 14px 0;}
 </style>
