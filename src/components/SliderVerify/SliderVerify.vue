@@ -63,6 +63,7 @@
       sliderClose(e) {
         if (e.target.className === 'sliderVerifyMask') {
           this.$emit('update:show', false)
+          this.sliderReset()
         }
       },
       sliderRefresh() {
@@ -110,11 +111,11 @@
     mounted() {
       document.onkeydown = (e) => {
         if (e.keyCode === 37) {
-          this.sliderRangeWidth-=5
-          this.sliderRangeBlockLeft-=5
+          this.sliderRangeWidth = this.sliderRangeWidth <= 50 ? 50 : this.sliderRangeWidth - 5
+          this.sliderRangeBlockLeft = this.sliderRangeBlockLeft <= 0 ? 0 : this.sliderRangeBlockLeft - 5
         } else if (e.keyCode === 39) {
-          this.sliderRangeWidth+=5
-          this.sliderRangeBlockLeft+=5
+          this.sliderRangeWidth = this.sliderRangeWidth >= 300 ? 300 : this.sliderRangeWidth + 5
+          this.sliderRangeBlockLeft = this.sliderRangeBlockLeft >= 300 ? 300 : this.sliderRangeBlockLeft + 5
         } else if (e.keyCode === 13 && this.show) {
           this.sliderComplete()
         }
