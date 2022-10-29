@@ -181,7 +181,7 @@
           showName: '',
           pass: '',
           deptId: '',
-          disabled: ''
+          disabled: 0
         },
         currentId: '',
         bindRoleShow: false,

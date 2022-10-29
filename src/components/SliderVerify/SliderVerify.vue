@@ -81,27 +81,43 @@
         document.onmouseup = (e) => {
           document.onmouseup = null;
           document.onmousemove = null;
-          this.$emit('sliderComplete', this.sliderRangeBlockLeft, bool => {
-            this.showVerifyTxt = true
-            this.verifyStatus = bool
-            if (bool) {
-              setTimeout(() => {
-                this.$emit('update:show', false)
-                this.sliderReset()
-              }, 1000)
-            } else {
-              setTimeout(() => {
-                this.sliderRefresh()
-              }, 1000)
-            }
-          })
+          this.sliderComplete()
         };
+      },
+      sliderComplete() {
+        this.$emit('sliderComplete', this.sliderRangeBlockLeft, bool => {
+          this.showVerifyTxt = true
+          this.verifyStatus = bool
+          if (bool) {
+            setTimeout(() => {
+              this.$emit('update:show', false)
+              this.sliderReset()
+            }, 1000)
+          } else {
+            setTimeout(() => {
+              this.sliderRefresh()
+            }, 1000)
+          }
+        })
       },
       sliderReset() {
         this.sliderRangeWidth = 50
         this.sliderRangeBlockLeft = 0
         this.showVerifyTxt = false
         this.verifyStatus = false
+      }
+    },
+    mounted() {
+      document.onkeydown = (e) => {
+        if (e.keyCode === 37) {
+          this.sliderRangeWidth-=5
+          this.sliderRangeBlockLeft-=5
+        } else if (e.keyCode === 39) {
+          this.sliderRangeWidth+=5
+          this.sliderRangeBlockLeft+=5
+        } else if (e.keyCode === 13 && this.show) {
+          this.sliderComplete()
+        }
       }
     }
   }

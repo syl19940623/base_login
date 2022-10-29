@@ -37,7 +37,7 @@
                 <i class="el-icon-user"></i>
               </div>
               <div class="form">
-                <input type="text" placeholder="请输入登录账号" autocomplete="off" v-model="account" @keyup.enter="openVerify"/>
+                <input ref="loginInput" type="text" placeholder="请输入登录账号" autocomplete="off" v-model="account" @keyup.enter="openVerify"/>
               </div>
             </div>
             <div class="formRow">
@@ -45,7 +45,7 @@
                 <i class="el-icon-lock"></i>
               </div>
               <div class="form">
-                <input type="password" placeholder="请输入登录密码" autocomplete="off" v-model="password" @keyup.enter="openVerify"/>
+                <input ref="loginInput" type="password" placeholder="请输入登录密码" autocomplete="off" v-model="password" @keyup.enter="openVerify"/>
               </div>
             </div>
             <div class="formRow" v-if="loginVerify.smsIsOpenFlag">
@@ -179,6 +179,7 @@
         } else if (this.loginVerify.smsIsOpenFlag && this.smsCode.length != 6) {
           this.$message.error('短信验证码须是6位有效数字')
         } else {
+          this.$refs.loginInput.blur()
           this.sliderRefresh()
         }
       },
@@ -319,7 +320,7 @@
         .accountLoginOut{
           form{margin: 30px 0 15px;
             .formRow{margin-bottom: 15px;overflow: hidden;border-bottom: 1px solid var(--border-color);position: relative;
-              .formIcon{width: 40px;height: 40px;float: left;text-align: center;line-height: 40px;
+              .formIcon{width: 40px;height: 40px;float: left;text-align: center;line-height: 42px;
                 i{font-size: 18px;}
               }
               .form{width: calc(100% - 40px);float: left;
