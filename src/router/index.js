@@ -107,9 +107,6 @@ const routes = [
   {
     path: '/hbTemplate',
     component: () => import('../views/hbTemplate/hbTemplate')
-  },{
-    path: '/test',
-    component: () => import('../views/test/test')
   }
 ]
 
