@@ -133,17 +133,19 @@
           :header-align="align">
           <template slot-scope="scope">
             <template v-for="item in tableData.barList">
-              <el-popconfirm :title="item.confirmText ?? '您确定要删除本条数据吗？'" @confirm="handleBarEvent(item.event, scope.row, scope.$index)" v-if="item.confirm">
-                <el-link :type="item.type" slot="reference">
+              <template v-if="convertIf(scope.row, item.if)">
+                <el-popconfirm :title="item.confirmText ?? '您确定要删除本条数据吗？'" @confirm="handleBarEvent(item.event, scope.row, scope.$index)" v-if="item.confirm">
+                  <el-link :type="item.type" slot="reference">
+                    {{item.text}}
+                  </el-link>
+                </el-popconfirm>
+                <el-link
+                  v-else
+                  :type="item.type"
+                  @click="handleBarEvent(item.event, scope.row, scope.$index)">
                   {{item.text}}
                 </el-link>
-              </el-popconfirm>
-              <el-link
-                v-else
-                :type="item.type"
-                @click="handleBarEvent(item.event, scope.row, scope.$index)">
-                {{item.text}}
-              </el-link>
+              </template>
             </template>
           </template>
         </el-table-column>
@@ -247,6 +249,19 @@
       },
       handleBarEvent(event, data, index) {
         this.$emit(event, data, index)
+      },
+      convertIf(row, expression) {
+        if (expression) {
+          if (expression.indexOf('==') !== -1) {
+            const expressionArr = expression.split('==')
+            return row[expressionArr[0].trim()] == expressionArr[1].trim();
+          } else if (expression.indexOf('!=') !== -1) {
+            const expressionArr = expression.split('!=')
+            return row[expressionArr[0].trim()] != expressionArr[1].trim();
+          }
+        } else {
+          return true;
+        }
       }
     },
     mounted() {

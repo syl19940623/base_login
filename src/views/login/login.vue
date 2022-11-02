@@ -37,7 +37,7 @@
                 <i class="el-icon-user"></i>
               </div>
               <div class="form">
-                <input ref="loginInput" type="text" placeholder="请输入登录账号" autocomplete="off" v-model="account" @keyup.enter="openVerify"/>
+                <input type="text" placeholder="请输入登录账号" autocomplete="off" v-model="account" @keyup.enter="openVerify"/>
               </div>
             </div>
             <div class="formRow">
@@ -45,7 +45,7 @@
                 <i class="el-icon-lock"></i>
               </div>
               <div class="form">
-                <input ref="loginInput" type="password" placeholder="请输入登录密码" autocomplete="off" v-model="password" @keyup.enter="openVerify"/>
+                <input type="password" placeholder="请输入登录密码" autocomplete="off" v-model="password" @keyup.enter="openVerify"/>
               </div>
             </div>
             <div class="formRow" v-if="loginVerify.smsIsOpenFlag">
@@ -170,17 +170,18 @@
         this.accountLogin = false
       },
       openVerify() {
-        if (this.account == '') {
-          this.$message.error('登录账号不能为空')
-        } else if (this.password == '') {
-          this.$message.error('登录密码不能为空')
-        } else if (this.loginVerify.smsIsOpenFlag && this.smsCode == '') {
-          this.$message.error('短信验证码不能为空')
-        } else if (this.loginVerify.smsIsOpenFlag && this.smsCode.length != 6) {
-          this.$message.error('短信验证码须是6位有效数字')
-        } else {
-          this.$refs.loginInput.blur()
-          this.sliderRefresh()
+        if (!this.sliderVerify.verifyShow) {
+          if (this.account == '') {
+            this.$message.error('登录账号不能为空')
+          } else if (this.password == '') {
+            this.$message.error('登录密码不能为空')
+          } else if (this.loginVerify.smsIsOpenFlag && this.smsCode == '') {
+            this.$message.error('短信验证码不能为空')
+          } else if (this.loginVerify.smsIsOpenFlag && this.smsCode.length != 6) {
+            this.$message.error('短信验证码须是6位有效数字')
+          } else {
+            this.sliderRefresh()
+          }
         }
       },
       sliderRefresh() {
@@ -324,8 +325,7 @@
                 i{font-size: 18px;}
               }
               .form{width: calc(100% - 40px);float: left;
-                input{height: 40px;}
-                img{width: 100px;position: absolute;top: 0;right: 0;cursor: pointer;}
+                input{width: 100%;height: 40px;}
               }
             }
             .otherOperate{overflow: hidden;
