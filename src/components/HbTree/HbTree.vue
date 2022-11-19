@@ -1,7 +1,7 @@
 <template>
   <div class="hbTree">
-    <el-input v-if="search" id="treeKw" v-model="treeKw" placeholder="请输入关键词" size="medium"></el-input>
-    <div :id="el" class="ztree" ref="zTree"></div>
+    <el-input v-if="search" :id="id + 'Kw'" v-model="treeKw" placeholder="请输入关键词" size="medium"></el-input>
+    <div :id="id" class="ztree"></div>
   </div>
 </template>
 
@@ -18,7 +18,7 @@
         type: Boolean,
         default: false
       },
-      el: {
+      id: {
         type: String,
         default: 'hbTree'
       },
@@ -218,14 +218,14 @@
         setting.check = this.check
         setting.edit = this.edit
         if (this.async && this.async.enable) {
-          $.fn.zTree.init($('#' + this.el), setting);
+          $.fn.zTree.init($('#' + this.id), setting);
         } else {
-          $.fn.zTree.init($('#' + this.el), setting, this.data);
+          $.fn.zTree.init($('#' + this.id), setting, this.data);
         }
-        this.zTree = $.fn.zTree.getZTreeObj(this.el);
+        this.zTree = $.fn.zTree.getZTreeObj(this.id);
         this.zTree.expandAll(this.defaultExpandAll);
         if (this.search) {
-          fuzzySearch(this.el, '#treeKw', this.highlight, this.defaultExpandAll);
+          fuzzySearch(this.id, '#' + this.id + 'Kw', this.highlight, this.defaultExpandAll);
         }
       },
       addNodes(parentNode, newNodes, isSilent) {

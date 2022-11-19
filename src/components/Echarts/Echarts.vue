@@ -1,6 +1,6 @@
 <template>
   <div class="echarts">
-    <div id="container"></div>
+    <div :id="id"></div>
   </div>
 </template>
 

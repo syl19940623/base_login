@@ -98,8 +98,8 @@
           &:hover{color: var(--primary);}
         }
       }
-      .dialogMid{overflow-y: auto;
-        .dialogContent{color: #606266;padding: 25px 15px 0;min-height: 72px;}
+      .dialogMid{overflow-y: auto;min-height: 72px;
+        .dialogContent{color: #606266;padding: 25px 15px 0;}
       }
       .dialogBot{overflow: hidden;padding: 15px;
         .dialogBotBtn{float: right;margin-left: 15px;}

@@ -240,7 +240,7 @@
           this.crumbActiveIndex = index == 0 ? index : 1
           this.selectedKey = this.crumbList[this.crumbActiveIndex].id
         } else if (type == 'all') {
-          this.crumbList.length = 1
+          this.crumbList = [this.crumbList[0]]
           this.crumbActiveIndex = 0
           this.selectedKey = ''
         }
@@ -413,9 +413,9 @@
         }
         li:hover{background: var(--bg);}
       }
-      .crumb{height: 40px;}
-      .content{height: calc(100% - 105px);padding: 10px;background: var(--bg);
-        .iframeContainer{background: #fff;height: calc(100vh - 125px);box-shadow: 0 0 8px 2px rgba(0,0,0,.05);
+      .crumb{height: 45px;}
+      .content{height: calc(100% - 110px);padding: 10px;background: var(--bg);
+        .iframeContainer{background: #fff;height: calc(100vh - 130px);box-shadow: 0 0 8px 2px rgba(0,0,0,.05);
           iframe{width: 100%;height: 100%;}
         }
       }

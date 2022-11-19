@@ -1,6 +1,6 @@
 <template>
   <transition name="dialog-fade">
-    <div class="formDesign" v-if="show">
+    <div class="formDesign">
       <div class="title">
         <el-form :inline="true">
           <el-form-item size="medium">
@@ -281,12 +281,16 @@
     data() {
       return {
         setting: {
-          menubar: false,
-          toolbar: "code undo redo bold italic underline strikethrough forecolor backcolor hr charmap emoticons searchreplace formatselect alignleft aligncenter alignright alignjustify link unlink numlist bullist image media table removeformat preview print fullscreen",
+          menubar: true,
           plugins: "code charmap emoticons searchreplace link image media table lists advlist preview fullscreen quickbars",
-          branding: false,
+          toolbar: "code undo redo bold italic underline strikethrough forecolor backcolor hr charmap emoticons searchreplace formatselect alignleft aligncenter alignright alignjustify link unlink numlist bullist image media table removeformat preview print fullscreen",
           height: 400,
-          language: 'zh_CN'
+          language: 'zh_CN',
+          draggable_modal: true,
+          elementpath: false,
+          statusbar: false,
+          branding: false,
+          placeholder: '请输入内容...'
         },
         formList: [],
         formElement: [
