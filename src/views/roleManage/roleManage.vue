@@ -17,7 +17,7 @@
 
     <Dialog :show.sync="operateRoleShow" title="角色信息" width="500px" height="450px" :btn="['保存', '取消']" @dialogOperate="dialogOperate" @dialogEnd="dialogEnd">
       <div slot="vNode">
-        <HbForm ref="hbForm" :hb-form="operateRoleForm" :hb-form-data="operateRoleFormData"></HbForm>
+        <HbForm ref="hbForm" :form="operateRoleForm" :form-data="operateRoleFormData"></HbForm>
       </div>
     </Dialog>
 

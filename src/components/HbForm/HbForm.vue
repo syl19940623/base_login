@@ -2,22 +2,22 @@
   <div class="hbForm">
     <el-form
       ref="hbFormRef"
-      :size="hbForm.size ?? 'medium'"
-      :rules="hbForm.rules"
-      :model="hbFormData"
-      :disabled="hbForm.disabled"
-      :inline="hbForm.inline"
-      :label-position="hbForm.labelPosition ?? 'right'"
-      :label-width="hbForm.labelWidth ?? '68px'"
-      :show-message="hbForm.showMessage"
-      :inline-message="hbForm.inlineMessage"
-      :status-icon="hbForm.statusIcon"
-      :hide-required-asterisk="hbForm.hideRequiredAsterisk ?? false">
-      <template v-for="item in hbForm.list">
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type == 'text'">
+      :size="form.size ?? 'medium'"
+      :rules="form.rules"
+      :model="formData"
+      :disabled="form.disabled"
+      :inline="form.inline"
+      :label-position="form.labelPosition ?? 'right'"
+      :label-width="form.labelWidth ?? '68px'"
+      :show-message="form.showMessage"
+      :inline-message="form.inlineMessage"
+      :status-icon="form.statusIcon"
+      :hide-required-asterisk="form.hideRequiredAsterisk ?? false">
+      <template v-for="item in form.list">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'text'">
           <el-input
             type="text"
-            v-model="hbFormData[item.prop]"
+            v-model="formData[item.prop]"
             :size="item.size"
             :maxlength="item.maxlength"
             :show-word-limit="item.showWordLimit"
@@ -28,9 +28,9 @@
             :placeholder="item.placeholder ?? '请输入' + item.label">
           </el-input>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type == 'number'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'number'">
           <el-input-number
-            v-model="hbFormData[item.prop]"
+            v-model.number="formData[item.prop]"
             controls-position="right"
             :size="item.size"
             :disabled="item.disabled"
@@ -43,10 +43,10 @@
             :placeholder="item.placeholder ?? '请输入' + item.label">
           </el-input-number>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type == 'password'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'password'">
           <el-input
             type="password"
-            v-model="hbFormData[item.prop]"
+            v-model="formData[item.prop]"
             :size="item.size"
             :disabled="item.disabled"
             :clearable="item.clearable"
@@ -56,10 +56,10 @@
             :placeholder="item.placeholder ?? '请输入' + item.label">
           </el-input>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type == 'textarea'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'textarea'">
           <el-input
             type="textarea"
-            v-model="hbFormData[item.prop]"
+            v-model="formData[item.prop]"
             :size="item.size"
             :rows="item.rows"
             :resize="item.resize"
@@ -71,9 +71,9 @@
             :placeholder="item.placeholder ?? '请输入' + item.label">
           </el-input>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type == 'select'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'select'">
           <el-select
-            v-model="hbFormData[item.prop]"
+            v-model="formData[item.prop]"
             :size="item.size"
             :multiple="item.multiple"
             :disabled="item.disabled"
@@ -92,9 +92,9 @@
             </template>
           </el-select>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type == 'radio'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'radio'">
           <el-radio-group
-            v-model="hbFormData[item.prop]"
+            v-model="formData[item.prop]"
             :size="item.size"
             :text-color="item.textColor ?? '#fff'"
             :fill="item.fill ?? '#409EFF'"
@@ -118,9 +118,9 @@
             </template>
           </el-radio-group>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type == 'checkbox'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'checkbox'">
           <el-checkbox-group
-            v-model="hbFormData[item.prop]"
+            v-model="formData[item.prop]"
             :size="item.size"
             :min="item.min"
             :max="item.max"
@@ -149,9 +149,9 @@
             </template>
           </el-checkbox-group>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type == 'switch'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'switch'">
           <el-switch
-            v-model="hbFormData[item.prop]"
+            v-model="formData[item.prop]"
             :disabled="item.disabled"
             :loading="item.loading"
             :size="item.size"
@@ -165,9 +165,9 @@
             :style="item.style">
           </el-switch>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type == 'cascader'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'cascader'">
           <el-cascader
-            v-model="hbFormData[item.prop]"
+            v-model="formData[item.prop]"
             :size="item.size"
             :props="item.props"
             :options="item.options"
@@ -183,7 +183,7 @@
         </el-form-item>
         <el-form-item :label="item.label" :prop="item.prop" v-if="['year', 'month', 'date', 'datetime', 'week', 'daterange', 'datetimerange'].includes(item.type)">
           <el-date-picker
-            v-model="hbFormData[item.prop]"
+            v-model="formData[item.prop]"
             :type="item.type"
             :size="item.size"
             :disabled="item.disabled"
@@ -192,7 +192,7 @@
             :format="item.format"
             :prefix-icon="item.prefixIcon"
             :range-separator="item.rangeSeparator"
-            :value-format="item.valueFormat ?? (item.type == 'date' ? 'yyyy-MM-dd' : 'yyyy-MM-dd HH:mm:ss')"
+            :value-format="item.valueFormat ?? (item.type === 'date' ? 'yyyy-MM-dd' : 'yyyy-MM-dd HH:mm:ss')"
             :placeholder="item.placeholder ?? '请选择' + item.label"
             :start-placeholder="item.startPlaceholder ?? '请选择' + item.label + '开始时间'"
             :end-placeholder="item.endPlaceholder ?? '请选择' + item.label + '结束时间'">
@@ -223,19 +223,19 @@
   export default {
     name: 'HbForm',
     props: {
-      hbForm: Object,
-      hbFormData: Object
+      form: Object,
+      formData: Object
     },
     data() {
       return {
-        hbFormValidate: true
+        formValidateResult: true
       }
     },
     methods: {
-      validateHbForm() {
-        this.hbFormValidate = true
+      formValidate() {
+        this.formValidateResult = true
         this.$refs.hbFormRef.validate((valid, fields) => {
-          this.hbFormValidate = valid
+          this.formValidateResult = valid
         })
       },
       handleEvent(event) {

@@ -1,6 +1,6 @@
 <template>
   <transition name="dialog-fade">
-    <div class="formDesign">
+    <div class="formDesign" v-if="show">
       <div class="title">
         <el-form :inline="true">
           <el-form-item size="medium">

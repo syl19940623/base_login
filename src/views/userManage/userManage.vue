@@ -18,7 +18,7 @@
 
     <Dialog :show.sync="operateUserShow" title="用户信息" width="500px" height="66%" :btn="['保存', '取消']" @dialogOperate="dialogOperate" @dialogEnd="dialogEnd">
       <div slot="vNode">
-        <HbForm ref="hbForm" :hb-form="operateUserForm" :hb-form-data="operateUserFormData"></HbForm>
+        <HbForm ref="hbForm" :form="operateUserForm" :form-data="operateUserFormData"></HbForm>
       </div>
     </Dialog>
 

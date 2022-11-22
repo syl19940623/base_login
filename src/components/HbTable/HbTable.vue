@@ -230,7 +230,11 @@
         if (event === 'search') {
           this.pageNum = 1
         }
-        this.$emit(event)
+        if (this.firstColumnType === 'selection') {
+          this.$emit(event, this.allCheckedRows)
+        } else {
+          this.$emit(event)
+        }
       },
       selectionChange(selection) {
         this.allCheckedRows = selection

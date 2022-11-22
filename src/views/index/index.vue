@@ -29,7 +29,7 @@
             <i class="el-icon-bell"></i>
           </li>
           <li>
-            <el-dropdown @command="personalMenu">
+            <el-dropdown trigger="click" @command="personalMenu">
               <span class="el-dropdown-link">
                 欢迎您: {{showName}}<i class="fa fa-angle-down fa-fw"></i>
               </span>
@@ -77,7 +77,7 @@
       :show-close="false"
       @dialogOperate="updatePasswordDialogOperate">
       <template slot="vNode">
-        <HbForm ref="updatePasswordRef" :hb-form="updatePasswordForm" :hb-form-data="updatePasswordFormData"></HbForm>
+        <HbForm ref="updatePasswordRef" :form="updatePasswordForm" :form-data="updatePasswordFormData"></HbForm>
       </template>
     </Dialog>
     <PersonalInfo ref="personalInfoRef"></PersonalInfo>
@@ -235,7 +235,10 @@
           this.closeCurrentCrumb(index)
         } else if (type == 'other') {
           const newCrumbList = []
-          newCrumbList.push(this.crumbList[0], this.crumbList[index])
+          if (index != 0) {
+            newCrumbList.push(this.crumbList[0])
+          }
+          newCrumbList.push(this.crumbList[index])
           this.crumbList = newCrumbList
           this.crumbActiveIndex = index == 0 ? index : 1
           this.selectedKey = this.crumbList[this.crumbActiveIndex].id

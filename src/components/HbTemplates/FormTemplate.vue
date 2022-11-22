@@ -1,6 +1,6 @@
 <template>
   <div class="formTemplate">
-    <HbForm :hb-form="hbForm" :hb-form-data="hbFormData" @save="save"></HbForm>
+    <HbForm :form="hbForm" :form-data="hbFormData" @save="save"></HbForm>
   </div>
 </template>
 

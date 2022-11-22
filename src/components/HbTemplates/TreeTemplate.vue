@@ -16,7 +16,7 @@
         </HbTree>
       </div>
       <div class="form">
-        <HbForm :hb-form="form" :hb-form-data="formData"></HbForm>
+        <HbForm :form="form" :form-data="formData"></HbForm>
       </div>
     </div>
   </div>
