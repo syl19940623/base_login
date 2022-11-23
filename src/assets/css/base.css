@@ -5,7 +5,7 @@
 	--warning: #E6A23C;
 	--danger: #F56C6C;
 	--info: #909399;
-	--border-color: #E5E6EB;
+	--border-color: #DCDFE6;
 	--bg: #F2F3F5;
 }
 
@@ -27,7 +27,7 @@ ul {
 
 body {
 	font: 14px Verdana, Helvetica, Arial, sans-serif;
-	color: #333;
+	color: #1D2129;
 	background: #fff;
 }
 

@@ -90,16 +90,16 @@
 </script>
 
 <style lang="less" scoped>
-  .dialogMask{width: 100%;height: 100%;background: rgba(0,0,0,.6);position: fixed;top: 0;left: 0;z-index: 1994;
-    .dialog{background: #fff;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);min-width: 300px;min-height: 180px;
-      .dialogTop{overflow: hidden;line-height: 45px;padding: 0 15px;border-bottom: 1px solid #DCDFE6;background: #f8f8f8;height: 46px;
+  .dialogMask{width: 100%;height: 100%;background: rgba(0,0,0,.5);position: fixed;top: 0;left: 0;z-index: 1994;
+    .dialog{background: #fff;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);min-width: 300px;min-height: 180px;border-radius: 4px;
+      .dialogTop{overflow: hidden;line-height: 47px;padding: 0 15px;border-bottom: 1px solid var(--border-color);background: #fff;height: 48px;
         h1{float: left;color: rgba(0,0,0,.85);}
-        i{float: right;line-height: 46px;font-size: 16px;font-weight: bold;cursor: pointer;display: block;
+        i{float: right;line-height: 48px;font-size: 16px;font-weight: bold;cursor: pointer;display: block;
           &:hover{color: var(--primary);}
         }
       }
-      .dialogMid{overflow-y: auto;min-height: 72px;
-        .dialogContent{color: #606266;padding: 25px 15px 0;}
+      .dialogMid{overflow-y: auto;min-height: 70px;
+        .dialogContent{padding: 25px 15px 0;}
       }
       .dialogBot{overflow: hidden;padding: 15px;
         .dialogBotBtn{float: right;margin-left: 15px;}

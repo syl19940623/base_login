@@ -82,9 +82,9 @@
 
 <style lang="less" scoped>
   .crumbOut{background: #fff;height: 45px;display: flex;overflow-x: auto;overflow-y: hidden;scroll-behavior: smooth;
-    :deep(.el-scrollbar__wrap){height: 45px;overflow: hidden;white-space: nowrap;}
+    :deep(.el-scrollbar__wrap){height: 45px;overflow: hidden;white-space: nowrap;margin-right: 0 !important;}
     :deep(.el-scrollbar__bar){bottom: 0;}
-    span{display: inline-block;padding: 0 35px;line-height: 45px;cursor: pointer;position: relative;white-space: nowrap;
+    span{display: inline-block;padding: 0 35px;line-height: 45px;cursor: pointer;position: relative;white-space: nowrap;user-select: none;
       i{color: #666;position: absolute;top: 48%;right: 10px;transform: translateY(-50%);opacity: 0;font-size: 16px;}
     }
     span::before{content: '';width: 1px;height: 40%;background: var(--border-color);position: absolute;top: 50%;right: 0;transform: translateY(-50%);}
