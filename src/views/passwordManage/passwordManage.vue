@@ -20,16 +20,10 @@
 </template>
 
 <script>
-  import HbTable from "@/components/HbTable/HbTable";
-  import Dialog from "@/components/Dialog/Dialog";
   import { util } from "@/utils/util";
 
   export default {
 		name: 'passwordManage',
-		components: {
-			HbTable,
-			Dialog,
-		},
 		data() {
 			return {
 				tableData: {

@@ -5,13 +5,8 @@
 </template>
 
 <script>
-  import HbTree from "@/components/HbTree/HbTree";
-
   export default {
     name: "bindDept",
-    components: {
-      HbTree
-    },
     props: ['data'],
     data() {
       return {

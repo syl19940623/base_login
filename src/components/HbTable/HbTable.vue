@@ -80,6 +80,10 @@
     <div class="hbTable">
       <el-table
         ref="hbTableRef"
+        v-loading="tableData.loading"
+        element-loading-text="数据加载中"
+        element-loading-spinner="el-icon-loading"
+        element-loading-background="rgba(0,0,0,0.7)"
         :size="size"
         :border="border"
         :row-key="rowKey"

@@ -201,7 +201,7 @@
         <el-form-item v-if="['primary', 'success', 'info', 'warning', 'danger', 'default'].includes(item.type)">
           <el-button
             :type="item.type"
-            :size="item.size"
+            :size="item.size ?? 'small'"
             :plain="item.plain"
             :round="item.round"
             :circle="item.circle"

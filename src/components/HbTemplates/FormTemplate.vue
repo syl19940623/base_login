@@ -5,14 +5,10 @@
 </template>
 
 <script>
-  import HbForm from "@/components/HbForm/HbForm";
   import { util } from "@/utils/util";
 
   export default {
     name: "FormTemplate",
-    components: {
-      HbForm
-    },
     props: {
       data:  Object
     },

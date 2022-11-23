@@ -128,7 +128,6 @@
 </template>
 
 <script>
-  import HbTree from "@/components/HbTree/HbTree";
   import selectIcon from "./selectIcon/selectIcon";
   import treeMenu from "./treeMenu/treeMenu";
   import formDesign from '../formDesign/formDesign';
@@ -136,7 +135,6 @@
   export default {
     name: 'menuManage',
     components: {
-      HbTree,
       selectIcon,
       treeMenu,
       formDesign

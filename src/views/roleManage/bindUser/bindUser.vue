@@ -17,15 +17,8 @@
 </template>
 
 <script>
-  import HbTree from "@/components/HbTree/HbTree";
-  import HbTable from "@/components/HbTable/HbTable";
-
   export default {
     name: "bindUser",
-    components: {
-      HbTree,
-      HbTable
-    },
     props: {
       data: Object
     },

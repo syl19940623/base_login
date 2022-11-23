@@ -29,7 +29,7 @@
             <i class="el-icon-bell"></i>
           </li>
           <li>
-            <el-dropdown trigger="click" @command="personalMenu">
+            <el-dropdown @command="personalMenu">
               <span class="el-dropdown-link">
                 欢迎您: {{showName}}<i class="fa fa-angle-down fa-fw"></i>
               </span>
@@ -86,32 +86,18 @@
 </template>
 
 <script>
-  import SideMenu from '@/components/SideMenu/SideMenu';
-  import Crumb from '@/components/Crumb/Crumb.vue';
-  import LockScreen from '@/components/LockScreen/LockScreen';
   import ChangeSystem from './changeSystem/changeSystem';
-  import Watermark from "@/components/Watermark/Watermark";
-  import Dialog from "@/components/Dialog/Dialog";
-  import HbForm from "@/components/HbForm/HbForm";
   import PersonalInfo from './personalInfo/personalInfo';
-  import HbChat from '@/components/HbChat/Index';
   import { util } from "@/utils/util";
   import Bus from "@/utils/eventBus";
   import md5 from "js-md5";
   import { Base64 } from 'js-base64';
 
   export default {
-    name: 'index',
+    name: 'HbChat',
     components: {
-      SideMenu,
-      Crumb,
-      LockScreen,
       ChangeSystem,
-      Watermark,
-      Dialog,
-      HbForm,
-      PersonalInfo,
-      HbChat
+      PersonalInfo
     },
     data() {
       const validateNewPass = (rule, value, callback) => {

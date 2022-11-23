@@ -37,9 +37,6 @@
 </template>
 
 <script>
-  import HbTable from '@/components/HbTable/HbTable';
-  import Dialog from '@/components/Dialog/Dialog';
-  import HbForm from '@/components/HbForm/HbForm';
   import bindRole from './bindRole/bindRole';
   import bindDept from './bindDept/bindDept';
   import { Base64 } from 'js-base64';
@@ -48,9 +45,6 @@
   export default {
     name: 'userManage',
     components: {
-      HbTable,
-      Dialog,
-      HbForm,
       bindRole,
       bindDept
     },

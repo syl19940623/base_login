@@ -32,15 +32,8 @@
 </template>
 
 <script>
-  import HbTree from "@/components/HbTree/HbTree";
-  import HbTable from "@/components/HbTable/HbTable";
-
   export default {
     name: "weComSameOrganization",
-    components: {
-      HbTree,
-      HbTable
-    },
     data() {
       return {
         deptList: [],

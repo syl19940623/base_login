@@ -95,16 +95,12 @@
 </template>
 
 <script>
-  import SliderVerify from '@/components/SliderVerify/SliderVerify.vue';
   import md5 from 'js-md5';
   import '@/assets/js/ddLogin.js';
   import '@/assets/js/wxLogin.js';
 
   export default {
     name: 'login',
-    components: {
-      SliderVerify
-    },
     data() {
       return {
         accountLogin: true,

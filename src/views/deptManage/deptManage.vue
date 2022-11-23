@@ -23,16 +23,10 @@
 </template>
 
 <script>
-  import HbTree from "@/components/HbTree/HbTree";
-  import HbForm from "@/components/HbForm/HbForm";
   import { util } from "@/utils/util";
 
   export default {
     name: 'deptManage',
-    components: {
-      HbTree,
-      HbForm
-    },
     data() {
       return {
         treeBtn: [

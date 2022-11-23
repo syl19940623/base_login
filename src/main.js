@@ -7,6 +7,9 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 
+import HbUI from './components/hb-ui'
+Vue.use(HbUI)
+
 import RequestPlugin from "./plugin/RequestPlugin";
 Vue.use(RequestPlugin)
 

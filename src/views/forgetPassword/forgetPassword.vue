@@ -63,16 +63,11 @@
 </template>
 
 <script>
-  import SliderVerify from "@/components/SliderVerify/SliderVerify";
   import { Base64 } from 'js-base64';
   import { util } from '@/utils/util.js';
-  import md5 from "js-md5";
 
   export default {
     name: "forgetPassword",
-    components: {
-      SliderVerify
-    },
     data() {
       const validateLoginAccount = (rule, value, callback) => {
         if (value == '') {

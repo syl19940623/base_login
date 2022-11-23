@@ -25,15 +25,8 @@
 </template>
 
 <script>
-  import Dialog from "@/components/Dialog/Dialog";
-  import HbTree from "@/components/HbTree/HbTree";
-
   export default {
     name: "contentLayoutBind",
-    components: {
-      Dialog,
-      HbTree
-    },
     data() {
       return {
         rowList: [

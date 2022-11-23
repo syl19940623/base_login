@@ -39,16 +39,10 @@
 </template>
 
 <script>
-  import HbTable from "@/components/HbTable/HbTable";
-  import Dialog from "@/components/Dialog/Dialog";
   import { util } from "@/utils/util";
 
   export default {
     name: "dictionaryTableConfigDetail",
-    components: {
-      HbTable,
-      Dialog
-    },
     data() {
       return {
         tableData: {

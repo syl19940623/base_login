@@ -18,14 +18,10 @@
 </template>
 
 <script>
-  import Dialog from "@/components/Dialog/Dialog";
   import { util } from "@/utils/util";
 
   export default {
     name: "personalInfo",
-    components: {
-      Dialog
-    },
     data() {
       return {
         show: false,

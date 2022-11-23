@@ -13,14 +13,10 @@
 </template>
 
 <script>
-  import HbTable from "@/components/HbTable/HbTable";
   import { util } from "@/utils/util";
 
   export default {
     name: "systemLog",
-    components: {
-      HbTable
-    },
     data() {
       return {
         tableData: {

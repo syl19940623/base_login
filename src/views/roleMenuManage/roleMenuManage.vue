@@ -21,15 +21,8 @@
 </template>
 
 <script>
-  import HbTable from "@/components/HbTable/HbTable";
-  import HbTree from "@/components/HbTree/HbTree";
-
   export default {
     name: 'roleMenuManage',
-    components: {
-      HbTable,
-      HbTree
-    },
     data() {
       return {
         tableData: {

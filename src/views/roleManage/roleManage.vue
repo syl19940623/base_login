@@ -30,18 +30,12 @@
 </template>
 
 <script>
-  import HbTable from "@/components/HbTable/HbTable";
-  import Dialog from "@/components/Dialog/Dialog";
-  import HbForm from "@/components/HbForm/HbForm";
   import bindUser from "@/views/roleManage/bindUser/bindUser";
   import { util } from "@/utils/util";
 
   export default {
     name: "roleManage",
     components: {
-      HbTable,
-      Dialog,
-      HbForm,
       bindUser
     },
     data() {
