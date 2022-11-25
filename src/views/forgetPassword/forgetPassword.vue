@@ -298,7 +298,7 @@
   .menuOut{
     .logoOut{background: #fff;box-shadow: 0 0 40px -10px rgb(64, 158, 255, .01);
       .logoMain{width: 1200px;margin: 0 auto;padding: 15px 0;overflow: hidden;
-        img{height: 40px;display: block;float: left;}
+        img{width: auto !important;height: 40px;display: block;float: left;}
         ul{float: right;
           li{float: left;padding: 0 30px;box-sizing: border-box;
             h1{font-size: 18px;font-weight: bolder;line-height: 40px;color: #333;cursor: pointer;}
