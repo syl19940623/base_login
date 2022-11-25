@@ -57,7 +57,7 @@
         this.$emit('dialogClose')
       },
       dialogOperate(index) {
-        if (index == this.btn.length - 1) {
+        if (index === this.btn.length - 1) {
           this.dialogClose()
         } else {
           this.$emit('dialogOperate', index)
@@ -71,8 +71,8 @@
             height: 'auto'
           }
         } else {
-          const totalHeight = this.height.indexOf('%') != -1 ? '100%' : this.height
-          const topBotHeight = this.btn.length == 0 ? '61px' : '108px'
+          const totalHeight = this.height.indexOf('%') !== -1 ? '100%' : this.height
+          const topBotHeight = this.btn.length === 0 ? '48px' : '112px'
           return {
             height: 'calc(' + totalHeight + ' - ' + topBotHeight + ')'
           }
@@ -91,8 +91,8 @@
 
 <style lang="less" scoped>
   .dialogMask{width: 100%;height: 100%;background: rgba(0,0,0,.5);position: fixed;top: 0;left: 0;z-index: 1994;
-    .dialog{background: #fff;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);min-width: 300px;min-height: 180px;border-radius: 4px;
-      .dialogTop{overflow: hidden;line-height: 47px;padding: 0 15px;border-bottom: 1px solid var(--border-color);background: #fff;height: 48px;
+    .dialog{background: #fff;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);min-width: 300px;min-height: 180px;border-radius: 2px;overflow: hidden;
+      .dialogTop{overflow: hidden;line-height: 47px;padding: 0 15px;border-bottom: 1px solid var(--border-color);height: 48px;
         h1{float: left;color: rgba(0,0,0,.85);}
         i{float: right;line-height: 48px;font-size: 16px;font-weight: bold;cursor: pointer;display: block;
           &:hover{color: var(--primary);}

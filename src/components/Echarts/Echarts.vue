@@ -39,6 +39,7 @@
             width: this.width,
             height: this.height
           })
+          myChart.clear();
           myChart.setOption(val);
         },
         deep: true

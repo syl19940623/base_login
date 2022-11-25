@@ -9,6 +9,8 @@ Vue.use(ElementUI)
 
 import HbUI from './components/hb-ui'
 Vue.use(HbUI)
+import msg from './components/Msg'
+Vue.use(msg)
 
 import RequestPlugin from "./plugin/RequestPlugin";
 Vue.use(RequestPlugin)

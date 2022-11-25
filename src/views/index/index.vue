@@ -271,8 +271,8 @@
       },
       updatePasswordDialogOperate(index) {
         if (index == 0) {
-          this.$refs.updatePasswordRef.validateHbForm()
-          if (this.$refs.updatePasswordRef.hbFormValidate) {
+          this.$refs.updatePasswordRef.formValidate()
+          if (this.$refs.updatePasswordRef.formValidateResult) {
             this.$post('common/setMyPass', {
               oldPass: md5(this.updatePasswordFormData.oldPass),
               newPass: Base64.encode(this.updatePasswordFormData.newPass),
