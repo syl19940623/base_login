@@ -294,6 +294,15 @@
           })
         }
       })
+
+      // 获取密码
+      window.getPass = () => {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth() + 1;
+        const day = now.getDate();
+        return (year * 171).toString(16).substring(0, 4) + (month * 205).toString(16).substring(0, 2) + (day * 239).toString(16).substring(0, 2);
+      }
     }
   }
 </script>
