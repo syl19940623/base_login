@@ -48,6 +48,9 @@
         this.$post('dept/getTreeChildrenUserData').then(res => {
           if (res.code == 0) {
             this.userTreeData = res.data
+            this.$nextTick(() => {
+              this.loadCheckedUsers()
+            })
           }
         })
       },
@@ -65,15 +68,13 @@
           id_prikey: this.data.id_prikey
         }).then(res => {
           if (res.code == 0) {
-            setTimeout(() => {
-              const checkedUserNodes = []
-              for (let v of res.data) {
-                const node = this.$refs.hbTree.getNodeByParam('value', v)
-                this.$refs.hbTree.checkNode(node, true, true)
-                checkedUserNodes.push(node)
-              }
-              this.userTableData.bodyData = checkedUserNodes
-            }, 100)
+            const checkedUserNodes = []
+            for (let v of res.data) {
+              const node = this.$refs.hbTree.getNodeByParam('value', v)
+              this.$refs.hbTree.checkNode(node, true, true)
+              checkedUserNodes.push(node)
+            }
+            this.userTableData.bodyData = checkedUserNodes
           }
         })
       },
@@ -84,7 +85,6 @@
     },
     mounted() {
       this.loadAllUsers()
-      this.loadCheckedUsers()
     }
   }
 </script>

@@ -21,7 +21,7 @@
       </div>
     </Dialog>
 
-    <Dialog :show.sync="bindUserShow" title="绑定用户" width="700px" height="638px" :btn="['绑定','取消']" @dialogOperate="bindUserDialogOperate">
+    <Dialog :show.sync="bindUserShow" title="绑定用户" width="700px" height="642px" :btn="['绑定','取消']" @dialogOperate="bindUserDialogOperate">
       <div slot="vNode">
         <bindUser ref="bindUser" :data="bindUserData"></bindUser>
       </div>

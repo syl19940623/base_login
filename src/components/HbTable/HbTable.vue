@@ -302,7 +302,7 @@
     }
     .hbTable{padding: 15px;
       .el-table{font-size: 12px;
-        :deep(thead .cell){color: rgba(0, 0, 0, 0.65);}
+        :deep(thead .cell){color: rgba(0, 0, 0, 0.85);}
         :deep(th.el-table__cell){background: #FAFAFA;height: 36px;}
         :deep(.el-checkbox){vertical-align: text-top;}
         :deep(.current-row td.el-table__cell){background: rgba(0,33,64,.1);}

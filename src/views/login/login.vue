@@ -58,9 +58,9 @@
               </div>
             </div>
             <el-button @click="openVerify" type="primary" style="width: 100%;margin-top: 15px;" size="large">立即登录</el-button>
-            <div class="otherOperate" style="padding-top: 15px;">
+            <div class="otherOperate" style="padding: 20px 0 5px;">
               <el-checkbox v-model="rememberAccount">记住账号</el-checkbox>
-              <el-link href="forgetPassword">忘记密码</el-link>
+<!--              <el-link href="forgetPassword">忘记密码</el-link>-->
             </div>
           </form>
         </div>
@@ -129,41 +129,42 @@
     },
     methods: {
       changeLoginType(type) {
-        if (type == 'wx') {
-          const obj = new WxLogin({
-            self_redirect: true,
-            id: "qrCode",
-            appid: "wx1851214902ef11bb",
-            scope: "snsapi_login",
-            redirect_uri: encodeURIComponent("http://www.boyuan.com/api/a/wx_third_login/login_third_weixin.php?action=do"),
-            state: "",
-            style: "",
-            href: "data:text/css;base64,LnRpdGxlLCAuaW5mbyB7DQoJZGlzcGxheTogbm9uZTsNCn0NCg0KLmltcG93ZXJCb3ggLnFyY29kZSB7DQoJd2lkdGg6IDI0MHB4Ow0KCW1hcmdpbjogMzBweCAwOw0KCWJvcmRlcjogbm9uZTsNCn0="
-          });
-        } else if (type == 'qywx') {
-          // 企业微信
-        } else if (type == 'dd') {
-          const obj = DDLogin({
-            id: "qrCode",
-            goto: "https%3A%2F%2Foapi.dingtalk.com%2Fconnect%2Foauth2%2Fsns_authorize%3Fappid%3Ddingoabzckg9kyzm9b7dhj%26response_type%3Dcode%26scope%3Dsnsapi_login%26state%3DSTATE%26redirect_uri%3Dhttp%3A%2F%2F192.168.0.81:8114%2FgetDingDingThirdParty",
-            style: "border:none;background-color:rgba(255,255,255,.1);",
-            width: "300",
-            height: "300"
-          });
-          function hanndleMessage(event) {
-            const origin = event.origin;
-            if (origin == "https://login.dingtalk.com") {
-              const loginTmpCode = event.data;
-              window.location.replace("https://oapi.dingtalk.com/connect/oauth2/sns_authorize?appid=dingoabzckg9kyzm9b7dhj&response_type=code&scope=snsapi_login&state=STATE&redirect_uri=http://192.168.0.81:8114/getDingDingThirdParty&loginTmpCode=" + loginTmpCode)
-            }
-          };
-          if (typeof window.addEventListener != 'undefined') {
-            window.addEventListener('message', hanndleMessage, false);
-          } else if (typeof window.attachEvent != 'undefined') {
-            window.attachEvent('onmessage', hanndleMessage);
-          }
-        }
-        this.accountLogin = false
+        this.$alert('该功能正在开发中，敬请期待后续上线！', '提示')
+        // if (type == 'wx') {
+        //   const obj = new WxLogin({
+        //     self_redirect: true,
+        //     id: "qrCode",
+        //     appid: "wx1851214902ef11bb",
+        //     scope: "snsapi_login",
+        //     redirect_uri: encodeURIComponent("http://www.boyuan.com/api/a/wx_third_login/login_third_weixin.php?action=do"),
+        //     state: "",
+        //     style: "",
+        //     href: "data:text/css;base64,LnRpdGxlLCAuaW5mbyB7DQoJZGlzcGxheTogbm9uZTsNCn0NCg0KLmltcG93ZXJCb3ggLnFyY29kZSB7DQoJd2lkdGg6IDI0MHB4Ow0KCW1hcmdpbjogMzBweCAwOw0KCWJvcmRlcjogbm9uZTsNCn0="
+        //   });
+        // } else if (type == 'qywx') {
+        //   // 企业微信
+        // } else if (type == 'dd') {
+        //   const obj = DDLogin({
+        //     id: "qrCode",
+        //     goto: "https%3A%2F%2Foapi.dingtalk.com%2Fconnect%2Foauth2%2Fsns_authorize%3Fappid%3Ddingoabzckg9kyzm9b7dhj%26response_type%3Dcode%26scope%3Dsnsapi_login%26state%3DSTATE%26redirect_uri%3Dhttp%3A%2F%2F192.168.0.81:8114%2FgetDingDingThirdParty",
+        //     style: "border:none;background-color:rgba(255,255,255,.1);",
+        //     width: "300",
+        //     height: "300"
+        //   });
+        //   function hanndleMessage(event) {
+        //     const origin = event.origin;
+        //     if (origin == "https://login.dingtalk.com") {
+        //       const loginTmpCode = event.data;
+        //       window.location.replace("https://oapi.dingtalk.com/connect/oauth2/sns_authorize?appid=dingoabzckg9kyzm9b7dhj&response_type=code&scope=snsapi_login&state=STATE&redirect_uri=http://192.168.0.81:8114/getDingDingThirdParty&loginTmpCode=" + loginTmpCode)
+        //     }
+        //   };
+        //   if (typeof window.addEventListener != 'undefined') {
+        //     window.addEventListener('message', hanndleMessage, false);
+        //   } else if (typeof window.attachEvent != 'undefined') {
+        //     window.attachEvent('onmessage', hanndleMessage);
+        //   }
+        // }
+        // this.accountLogin = false
       },
       openVerify() {
         if (!this.sliderVerify.verifyShow) {
@@ -334,7 +335,7 @@
               }
             }
             .otherOperate{overflow: hidden;
-              .el-link{text-decoration: none;margin-top: 6.5px;float: right;}
+              .el-link{text-decoration: none;float: right;}
             }
           }
         }

@@ -85,7 +85,7 @@
     :deep(.el-scrollbar__wrap){height: 45px;overflow: hidden;white-space: nowrap;margin-right: 0 !important;}
     :deep(.el-scrollbar__bar){bottom: 0;}
     span{display: inline-block;padding: 0 35px;line-height: 45px;cursor: pointer;position: relative;white-space: nowrap;user-select: none;
-      i{color: #666;position: absolute;top: 48%;right: 10px;transform: translateY(-50%);opacity: 0;font-size: 16px;}
+      i{color: #666;position: absolute;top: 46%;right: 12px;transform: translateY(-50%);opacity: 0;font-size: 18px;}
     }
     span::before{content: '';width: 1px;height: 40%;background: var(--border-color);position: absolute;top: 50%;right: 0;transform: translateY(-50%);}
     span:hover{color: var(--primary);
