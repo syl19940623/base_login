@@ -71,8 +71,10 @@
             const checkedUserNodes = []
             for (let v of res.data) {
               const node = this.$refs.hbTree.getNodeByParam('value', v)
-              this.$refs.hbTree.checkNode(node, true, true)
-              checkedUserNodes.push(node)
+              if (node) {
+                this.$refs.hbTree.checkNode(node, true, true)
+                checkedUserNodes.push(node)
+              }
             }
             this.userTableData.bodyData = checkedUserNodes
           }

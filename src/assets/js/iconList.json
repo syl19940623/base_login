@@ -11,6 +11,11 @@
       "show": true
     },
     {
+      "name": "雪花,snow",
+      "class": "fa fa-snowflake-o fa-fw",
+      "show": true
+    },
+    {
       "name": "统计表,统计图,水球图,图表",
       "class": "fa fa-area-chart fa-fw",
       "show": true
@@ -28,6 +33,11 @@
     {
       "name": "雪花,米字,星号,米字键",
       "class": "fa fa-asterisk fa-fw",
+      "show": true
+    },
+    {
+      "name": "栏目,仪表盘,dashboard",
+      "class": "fa fa-tachometer fa-fw",
       "show": true
     },
     {
@@ -86,6 +96,11 @@
       "show": true
     },
     {
+      "name": "书签,标签,标记,记录,标识",
+      "class": "fa fa-bookmark fa-fw",
+      "show": true
+    },
+    {
       "name": "公文包,行李箱,皮包,盒子",
       "class": "fa fa-briefcase fa-fw",
       "show": true
@@ -116,6 +131,11 @@
       "show": true
     },
     {
+      "name": "相机,照相机,复古相机",
+      "class": "fa fa-camera-retro fa-fw",
+      "show": true
+    },
+    {
       "name": "审核,选择,对号,ok,sure",
       "class": "fa fa-check fa-fw",
       "show": true
@@ -126,6 +146,11 @@
       "show": true
     },
     {
+      "name": "云,天气",
+      "class": "fa fa-cloud fa-fw",
+      "show": true
+    },
+    {
       "name": "下载,云",
       "class": "fa fa-cloud-download fa-fw",
       "show": true
@@ -133,6 +158,16 @@
     {
       "name": "上传,云",
       "class": "fa fa-cloud-upload fa-fw",
+      "show": true
+    },
+    {
+      "name": "卡,信用卡",
+      "class": "fa fa-credit-card fa-fw",
+      "show": true
+    },
+    {
+      "name": "卡,信用卡",
+      "class": "fa fa-credit-card-alt fa-fw",
       "show": true
     },
     {
@@ -148,6 +183,11 @@
     {
       "name": "指南针,导航",
       "class": "fa fa-compass fa-fw",
+      "show": true
+    },
+    {
+      "name": "数据库,金币",
+      "class": "fa fa-database fa-fw",
       "show": true
     },
     {
@@ -238,6 +278,11 @@
     {
       "name": "文件,office",
       "class": "fa fa-file-word-o fa-fw",
+      "show": true
+    },
+    {
+      "name": "沙漏,倒计时",
+      "class": "fa fa-hourglass-half fa-fw",
       "show": true
     },
     {
@@ -356,8 +401,18 @@
       "show": true
     },
     {
+      "name": "循环,回收,转移,移交",
+      "class": "fa fa-recycle fa-fw",
+      "show": true
+    },
+    {
       "name": "飞机,旅途,旅程,旅游,出游,游玩",
       "class": "fa fa-plane fa-fw",
+      "show": true
+    },
+    {
+      "name": "服务器,菜单,文件列表,档案",
+      "class": "fa fa-server fa-fw",
       "show": true
     },
     {
@@ -417,6 +472,11 @@
     },
     {
       "name": "分享",
+      "class": "fa fa-share fa-fw",
+      "show": true
+    },
+    {
+      "name": "分享",
       "class": "fa fa-share-alt fa-fw",
       "show": true
     },
@@ -453,6 +513,21 @@
     {
       "name": "五角星,收藏,喜欢,星星",
       "class": "fa fa-star fa-fw",
+      "show": true
+    },
+    {
+      "name": "奖杯,排行,排名",
+      "class": "fa fa-trophy fa-fw",
+      "show": true
+    },
+    {
+      "name": "输送,物流,快递",
+      "class": "fa fa-truck fa-fw",
+      "show": true
+    },
+    {
+      "name": "火箭,发射,起飞",
+      "class": "fa fa-rocket fa-fw",
       "show": true
     },
     {
@@ -523,6 +598,11 @@
     {
       "name": "保存,另存为",
       "class": "fa fa-save fa-fw",
+      "show": true
+    },
+    {
+      "name": "盒子,菜单,更多",
+      "class": "fa fa-th-large fa-fw",
       "show": true
     },
     {
@@ -658,6 +738,11 @@
     {
       "name": "树,森林,绿化,tree",
       "class": "fa fa-tree fa-fw",
+      "show": true
+    },
+    {
+      "name": "随机,交叉",
+      "class": "fa fa-random fa-fw",
       "show": true
     },
     {

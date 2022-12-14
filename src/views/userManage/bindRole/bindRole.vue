@@ -46,4 +46,5 @@
   .bindUser{padding: 30px;}
   :deep(.el-transfer-panel){width: 250px;}
   :deep(.el-transfer-panel__body){height: 401px;}
+  :deep(.el-transfer-panel__list){height: 354px;}
 </style>
