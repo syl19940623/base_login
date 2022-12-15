@@ -373,8 +373,15 @@
         return this.$store.state.token
       }
     },
+    beforeRouteEnter(to, from, next) {
+      if (from.path === '/login') {
+        next()
+      } else {
+        top.location.href = '/login'
+      }
+    },
     beforeRouteLeave(to, from ,next) {
-      if (to.path == '/login') {
+      if (to.path === '/login') {
         // this.socketClose()
       }
       next()
