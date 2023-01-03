@@ -36,6 +36,7 @@ instance.interceptors.request.use(config => {
 
 //请求后拦截
 import Bus from '../utils/eventBus.js';
+let msgBool = true
 instance.interceptors.response.use(res => {
   NProgress.done()
   const responseHeaderToken = res.headers.refresh_token
@@ -44,12 +45,14 @@ instance.interceptors.response.use(res => {
   }
   if (res.data) {
     let code = res.data.code;
-    if (errorCodeArr.includes(code)) {
+    if (msgBool && errorCodeArr.includes(code)) {
+      msgBool = false
       Message({
         message: res.data.msg,
         type: 'error',
         duration: 1500,
         onClose: () => {
+          msgBool = true
           Bus.$emit('tokenFail', 'Token失效');
           top.location.href = 'login'
         }
