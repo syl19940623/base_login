@@ -39,7 +39,7 @@
             :step="item.step"
             :step-strictly="item.stepStrictly"
             :precision="item.precision"
-            :controls="item.controls ?? false"
+            :controls="item.controls"
             :placeholder="item.placeholder ?? '请输入' + item.label">
           </el-input-number>
         </el-form-item>
@@ -181,7 +181,7 @@
             :placeholder="item.placeholder ?? '请选择' + item.label">
           </el-cascader>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="['year', 'month', 'date', 'datetime', 'week', 'daterange', 'datetimerange'].includes(item.type)">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="[ 'month', 'date', 'datetime', 'daterange', 'datetimerange'].includes(item.type)">
           <el-date-picker
             v-model="formData[item.prop]"
             :type="item.type"
@@ -190,9 +190,9 @@
             :editable="item.editable"
             :clearable="item.clearable"
             :format="item.format"
-            :prefix-icon="item.prefixIcon"
+            :prefix-icon="item.prefixIcon ?? ''"
             :range-separator="item.rangeSeparator"
-            :value-format="item.valueFormat ?? (item.type === 'date' ? 'yyyy-MM-dd' : 'yyyy-MM-dd HH:mm:ss')"
+            :value-format="item.valueFormat ?? (['month', 'date', 'daterange'].includes(item.type) ? 'yyyy-MM-dd' : 'yyyy-MM-dd HH:mm:ss')"
             :placeholder="item.placeholder ?? '请选择' + item.label"
             :start-placeholder="item.startPlaceholder ?? '请选择' + item.label + '开始时间'"
             :end-placeholder="item.endPlaceholder ?? '请选择' + item.label + '结束时间'">

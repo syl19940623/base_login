@@ -5,20 +5,18 @@
       <div v-if="tableData.toolbarList">
         <ul>
           <template v-for="item in tableData.toolbarList">
-            <li v-if="item.type == 'text'">
+            <li v-if="item.type === 'text'">
               <el-input
                 size="medium"
                 v-model="tableData.toolbarData[item.prop]"
-                :disabled="item.disabled"
                 :clearable="item.clearable"
                 :placeholder="'请输入' + item.label">
               </el-input>
             </li>
-            <li v-if="item.type == 'select'">
+            <li v-if="item.type === 'select'">
               <el-select
                 size="medium"
                 v-model="tableData.toolbarData[item.prop]"
-                :disabled="item.disabled"
                 :clearable="item.clearable"
                 :filterable="item.filterable"
                 :placeholder="'请输入' + item.label">
@@ -30,13 +28,12 @@
                 </template>
               </el-select>
             </li>
-            <li v-if="item.type == 'cascader'">
+            <li v-if="item.type === 'cascader'">
               <el-cascader
                 size="medium"
                 v-model="tableData.toolbarData[item.prop]"
                 :props="item.props"
                 :options="item.options"
-                :disabled="item.disabled"
                 :clearable="item.clearable"
                 :collapse-tags="true"
                 :collapse-tags-tooltip="true"
@@ -46,16 +43,15 @@
                 :placeholder="'请选择' + item.label">
               </el-cascader>
             </li>
-            <li v-if="['year', 'month', 'date', 'datetime', 'week', 'daterange', 'datetimerange'].includes(item.type)">
+            <li v-if="['month', 'date', 'datetime', 'daterange', 'datetimerange'].includes(item.type)">
               <el-date-picker
                 size="medium"
                 v-model="tableData.toolbarData[item.prop]"
                 :type="item.type"
-                :disabled="item.disabled"
-                :editable="item.editable"
+                :editable="false"
                 :clearable="item.clearable"
                 :range-separator="item.rangeSeparator"
-                :value-format="item.valueFormat ?? (item.type == 'date' ?? 'yyyy-MM-dd HH:mm:ss')"
+                :value-format="item.valueFormat ?? (['month', 'date', 'daterange'].includes(item.type) ? 'yyyy-MM-dd' : 'yyyy-MM-dd HH:mm:ss')"
                 :placeholder="'请选择' + item.label"
                 :start-placeholder="'请选择' + item.label + '开始时间'"
                 :end-placeholder="'请选择' + item.label + '结束时间'">
@@ -66,7 +62,6 @@
                 size="small"
                 :type="item.type"
                 :icon="item.icon"
-                :disabled="item.disabled"
                 @click="handleToolbarEvent(item.event)">
                 {{item.text}}
               </el-button>
