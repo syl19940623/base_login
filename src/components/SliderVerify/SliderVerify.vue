@@ -71,15 +71,14 @@
         this.$emit('sliderRefresh')
       },
       sliderMove(e) {
-        let odiv = e.target;
-        let disX = e.clientX - odiv.offsetLeft;
+        let disX = e.clientX - e.target.offsetLeft;
         document.onmousemove = (e) => {
           let left = e.clientX - disX;
           left = left <= 0 ? 0 : left <= 300 ? left : 300;
           this.sliderRangeWidth = 50 + left;
           this.sliderRangeBlockLeft = left;
         };
-        document.onmouseup = (e) => {
+        document.onmouseup = () => {
           document.onmouseup = null;
           document.onmousemove = null;
           this.sliderComplete()

@@ -61,13 +61,6 @@ function checkLicense(code) {
   return result;
 }
 
-// 数组去重
-function arrayRemoveRepeat(arr) {
-  return arr.filter(function (item, index, self) {
-    return self.indexOf(item) === index;
-  });
-}
-
 // 获取数组中key=value的那个对象
 function getObjectArrayByKey(arr, key, value) {
   for (let v in arr) {
@@ -81,14 +74,6 @@ function getObjectArrayByKey(arr, key, value) {
       }
     }
   }
-}
-
-// 数字计算（解决js计算精度问题）
-function calcNum(num1, num2, calcSymbol) {
-  let num1Digit = (num1.toString().split('.')[1] || '').length
-  let num2Digit = (num2.toString().split('.')[1] || '').length
-  let baseNum = Math.pow(10, Math.max(num1Digit, num2Digit))
-  return eval(((num1 * baseNum) + calcSymbol + (num2 * baseNum)) / baseNum)
 }
 
 // 生成随机整数
@@ -112,14 +97,9 @@ function copyStr(str) {
   });
 }
 
-// 深拷贝
-function deepClone(data) {
-  return JSON.parse(JSON.stringify(data))
-}
-
 // axios请求回调
 function axiosCb(res, sCb, fCb) {
-  if (res.code == 0) {
+  if (res.code === 0) {
     sCb && sCb()
     Message({
       message: res.msg,
@@ -166,12 +146,9 @@ export const util = {
   checkIdNumber,
   checkUrl,
   checkLicense,
-  arrayRemoveRepeat,
   getObjectArrayByKey,
-  calcNum,
   randomInteger,
   copyStr,
-  deepClone,
   axiosCb,
   timeAgo
 }

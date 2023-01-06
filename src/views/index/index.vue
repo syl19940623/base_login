@@ -19,6 +19,9 @@
           <li @click="changeSystemShow = true">
             <i class="el-icon-s-operation"></i>
           </li>
+          <li @click="refreshCurrentIframe">
+            <i class="el-icon-refresh"></i>
+          </li>
           <li @click="lockScreen">
             <i class="el-icon-lock"></i>
           </li>
@@ -70,14 +73,16 @@
     <ChangeSystem :show.sync="changeSystemShow" @changeSubSystem="changeSubSystem"></ChangeSystem>
     <Watermark :show="watermarkShow"></Watermark>
     <Dialog
-      title="修改密码"
+      :title="forceUpdatePassword ? $store.state.personalInfo.userPassFlagName : '修改密码'"
       width="450px"
-      :btn="!forceUpdatePassword ? ['保存', '取消'] : ['保存']"
+      :btn="forceUpdatePassword ? ['保存'] : ['保存', '取消']"
       :show.sync="updatePasswordShow"
       :show-close="false"
+      :clickBtnAutoClose="!forceUpdatePassword"
       @dialogOperate="updatePasswordDialogOperate">
       <template slot="vNode">
         <HbForm ref="updatePasswordRef" :form="updatePasswordForm" :form-data="updatePasswordFormData"></HbForm>
+        <p v-if="forceUpdatePassword" style="color: var(--danger);padding: 0 20px;font-size: 12px;">注：{{$store.state.personalInfo.userPassComplexity}}</p>
       </template>
     </Dialog>
     <PersonalInfo ref="personalInfoRef"></PersonalInfo>
@@ -135,17 +140,20 @@
             {
               type: 'password',
               prop: 'oldPass',
-              label: '旧密码'
+              label: '旧密码',
+              showPassword: true
             },
             {
               type: 'password',
               prop: 'newPass',
-              label: '新密码'
+              label: '新密码',
+              showPassword: true
             },
             {
               type: 'password',
               prop: 'surePass',
-              label: '确认密码'
+              label: '确认密码',
+              showPassword: true
             }
           ],
           rules: {
@@ -243,6 +251,9 @@
         this.changeSystemShow = false
         this.loadSideMenu('')
       },
+      refreshCurrentIframe() {
+        document.querySelector('.iframeContainer').getElementsByTagName('iframe')[this.crumbActiveIndex].contentWindow.location.reload()
+      },
       lockScreen() {
         this.$store.commit('updateLockScreen', true)
         this.lockScreenShow = true
@@ -256,11 +267,11 @@
         this.isFullscreen = !this.isFullscreen
       },
       personalMenu(command) {
-        if (command == 'updatePassword') {
+        if (command === 'updatePassword') {
           this.updatePasswordShow = true
-        } else if (command == 'personalInfo') {
+        } else if (command === 'personalInfo') {
           this.$refs.personalInfoRef.show = true
-        } else if (command == 'logOut') {
+        } else if (command === 'logOut') {
           this.$router.replace('login')
           this.$store.commit('saveToken', '')
           this.$store.commit('savePersonalInfo', {
@@ -270,7 +281,7 @@
         }
       },
       updatePasswordDialogOperate(index) {
-        if (index == 0) {
+        if (index === 0) {
           this.$refs.updatePasswordRef.formValidate()
           if (this.$refs.updatePasswordRef.formValidateResult) {
             this.$post('common/setMyPass', {
@@ -281,6 +292,15 @@
               util.axiosCb(res, () => {
                 this.updatePasswordShow = false
                 this.$data.updatePasswordFormData = this.$options.data().updatePasswordFormData
+                if (this.forceUpdatePassword) {
+                  const personalInfo = this.$store.state.personalInfo
+                  const personalExtendInfo = this.$store.state.personalExtendInfo
+                  personalInfo.userPassFlag = false
+                  this.$store.commit('savePersonalInfo', {
+                    data: personalInfo,
+                    extendData: personalExtendInfo
+                  })
+                }
               })
             })
           }
@@ -325,10 +345,11 @@
     },
     created() {
       this.$post('common/getLoginSystemInfo').then(res => {
-        if (res.code == 0) {
+        if (res.code === 0) {
           this.showName = this.$store.state.personalInfo.showName
           this.watermarkShow = this.$store.state.personalInfo.watermarkFlag
           this.forceUpdatePassword = this.$store.state.personalInfo.userPassFlag
+          this.updatePasswordShow = this.forceUpdatePassword
 
           if (this.$store.state.lockScreen) {
             this.lockScreenShow = true
@@ -340,7 +361,7 @@
           // 加载当前系统信息
           this.currentProjectUrl = res.data.currentProjectUrl
           this.currentProjectName = res.data.currentProjectName
-          if (res.data.jumpMode == 'frame') {
+          if (res.data.jumpMode === 'frame') {
             this.systemName = res.data.currentSystemName
             this.loadSideMenu('')
           } else {

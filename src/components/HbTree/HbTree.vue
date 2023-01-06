@@ -135,7 +135,7 @@
               return bool;
             },
             beforeClick: (treeId, treeNode, clickFlag) => {
-              let bool = true
+              let bool = this.getNodeByParam(this.idKey, 'new') === null
               this.$emit('beforeClick', treeId, treeNode, clickFlag, res => {
                 bool = res
               })

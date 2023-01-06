@@ -40,7 +40,7 @@
                 <input type="text" placeholder="请输入登录账号" autocomplete="off" v-model="account" @keyup.enter="openVerify"/>
               </div>
             </div>
-            <div class="formRow">
+            <div class="formRow" v-if="!loginVerify.smsIsOpenFlag">
               <div class="formIcon">
                 <i class="el-icon-lock"></i>
               </div>
@@ -60,7 +60,7 @@
             <el-button @click="openVerify" type="primary" style="width: 100%;margin-top: 15px;" size="large">立即登录</el-button>
             <div class="otherOperate" style="padding: 20px 0 5px;">
               <el-checkbox v-model="rememberAccount">记住账号</el-checkbox>
-<!--              <el-link href="forgetPassword">忘记密码</el-link>-->
+              <!--<el-link href="forgetPassword">忘记密码</el-link>-->
             </div>
           </form>
         </div>
@@ -116,7 +116,7 @@
         },
         smsCode: '',
         smsVerify: {
-          text: '获取短信验证码',
+          text: '获取验证码',
           type: 'primary',
           disabled: false
         },
@@ -168,13 +168,13 @@
       },
       openVerify() {
         if (!this.sliderVerify.verifyShow) {
-          if (this.account == '') {
+          if (this.account === '') {
             this.$message.error('登录账号不能为空')
-          } else if (this.password == '') {
+          } else if (this.password === '') {
             this.$message.error('登录密码不能为空')
-          } else if (this.loginVerify.smsIsOpenFlag && this.smsCode == '') {
+          } else if (this.loginVerify.smsIsOpenFlag && this.smsCode === '') {
             this.$message.error('短信验证码不能为空')
-          } else if (this.loginVerify.smsIsOpenFlag && this.smsCode.length != 6) {
+          } else if (this.loginVerify.smsIsOpenFlag && this.smsCode.length !== 6) {
             this.$message.error('短信验证码须是6位有效数字')
           } else {
             this.sliderRefresh()
@@ -183,7 +183,7 @@
       },
       sliderRefresh() {
         this.$post('getSliderImg').then(res => {
-          if (res.code == 0) {
+          if (res.code === 0) {
             this.sliderVerify.ranNum = res.data.ranNum
             this.sliderVerify.sliderBlockTop = res.data.y
             this.sliderVerify.sliderBg = 'data:image/png;base64,' + res.data.shadeImage
@@ -198,8 +198,8 @@
           y: this.sliderVerify.sliderBlockTop,
           ranNum: this.sliderVerify.ranNum
         }).then(res => {
-          callback(res.code == 0)
-          if (res.code == 0) {
+          callback(res.code === 0)
+          if (res.code === 0) {
             const sendData = {
               name: this.account,
               pass: md5(this.password),
@@ -209,7 +209,7 @@
               sendData.smsCode = this.smsCode
             }
             this.$post('login', sendData).then(res => {
-              if (res.code == 0) {
+              if (res.code === 0) {
                 this.$store.commit('saveToken', res.data)
                 if (this.rememberAccount) {
                   this.$store.commit('saveAccount', this.account)
@@ -217,7 +217,7 @@
                   this.$store.commit('saveAccount', '')
                 }
                 this.$post('common/getUserPublicData').then(res => {
-                  if (res.code == 0) {
+                  if (res.code === 0) {
                     this.$store.commit('savePersonalInfo', res)
                     setTimeout(() => {
                       this.$router.replace('index')
@@ -283,12 +283,12 @@
         this.account = accountVal
       }
       this.$post('getPublicInfo').then(res => {
-        if (res.code == 0) {
+        if (res.code === 0) {
           this.loginVerify.smsIsOpenFlag = res.data.smsIsOpenFlag
           this.loginVerify.navigationIsOpenFlag = res.data.navigationIsOpenFlag
           this.$nextTick(() => {
             this.$post('navigation/getAll').then(res => {
-              if (res.code == 0) {
+              if (res.code === 0) {
                 this.extendMenuList = res.data
               }
             })

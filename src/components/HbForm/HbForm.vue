@@ -260,5 +260,8 @@
     .el-form--inline{
       .el-form-item{margin-right: 15px;margin-bottom: 12px;min-width: 192px;}
     }
+    :deep(.el-form-item:last-child){
+      margin-bottom: 0;
+    }
   }
 </style>

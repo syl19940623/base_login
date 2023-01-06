@@ -49,7 +49,11 @@
         type: String,
         default: '提示'
       },
-      content: String
+      content: String,
+      clickBtnAutoClose: {
+        type: Boolean,
+        default: true
+      }
     },
     methods: {
       dialogClose() {
@@ -57,11 +61,10 @@
         this.$emit('dialogClose')
       },
       dialogOperate(index) {
-        if (index === this.btn.length - 1) {
+        if (this.clickBtnAutoClose && index === this.btn.length - 1) {
           this.dialogClose()
-        } else {
-          this.$emit('dialogOperate', index)
         }
+        this.$emit('dialogOperate', index)
       }
     },
     computed: {

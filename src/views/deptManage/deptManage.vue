@@ -223,8 +223,7 @@
         Object.assign(this.oldNode, this.currentNode)
         const defaultNode = {
           value: 'new',
-          label: '新建节点',
-          pId: this.currentNode.pId
+          label: '新建节点'
         };
         this.formData.name = '新建节点'
         let parentNode = null
