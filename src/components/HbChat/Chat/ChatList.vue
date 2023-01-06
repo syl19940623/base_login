@@ -49,7 +49,7 @@
         this.$post('chatContent/getMyChatInfo').then(res => {
           if (res.code === 0) {
             for (let v of res.data) {
-              this.$set(v, 'createDateFormat', util.timeAgo(v.createDate))
+              this.$set(v, 'createDateFormat', v.createDate)
             }
             this.list = res.data
           }

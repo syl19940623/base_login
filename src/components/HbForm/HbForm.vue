@@ -12,9 +12,9 @@
       :show-message="form.showMessage"
       :inline-message="form.inlineMessage"
       :status-icon="form.statusIcon"
-      :hide-required-asterisk="form.hideRequiredAsterisk ?? false">
+      :hide-required-asterisk="form.hideRequiredAsterisk">
       <template v-for="item in form.list">
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'text'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'text' && (item.isShow ?? true)">
           <el-input
             type="text"
             v-model="formData[item.prop]"
@@ -28,7 +28,7 @@
             :placeholder="item.placeholder ?? '请输入' + item.label">
           </el-input>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'number'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'number' && (item.isShow ?? true)">
           <el-input-number
             v-model.number="formData[item.prop]"
             controls-position="right"
@@ -43,7 +43,7 @@
             :placeholder="item.placeholder ?? '请输入' + item.label">
           </el-input-number>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'password'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'password' && (item.isShow ?? true)">
           <el-input
             type="password"
             v-model="formData[item.prop]"
@@ -56,7 +56,7 @@
             :placeholder="item.placeholder ?? '请输入' + item.label">
           </el-input>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'textarea'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'textarea' && (item.isShow ?? true)">
           <el-input
             type="textarea"
             v-model="formData[item.prop]"
@@ -71,7 +71,7 @@
             :placeholder="item.placeholder ?? '请输入' + item.label">
           </el-input>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'select'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'select' && (item.isShow ?? true)">
           <el-select
             v-model="formData[item.prop]"
             :size="item.size"
@@ -92,7 +92,7 @@
             </template>
           </el-select>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'radio'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'radio' && (item.isShow ?? true)">
           <el-radio-group
             v-model="formData[item.prop]"
             :size="item.size"
@@ -118,7 +118,7 @@
             </template>
           </el-radio-group>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'checkbox'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'checkbox' && (item.isShow ?? true)">
           <el-checkbox-group
             v-model="formData[item.prop]"
             :size="item.size"
@@ -149,7 +149,7 @@
             </template>
           </el-checkbox-group>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'switch'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'switch' && (item.isShow ?? true)">
           <el-switch
             v-model="formData[item.prop]"
             :disabled="item.disabled"
@@ -165,7 +165,7 @@
             :style="item.style">
           </el-switch>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'cascader'">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="item.type === 'cascader' && (item.isShow ?? true)">
           <el-cascader
             v-model="formData[item.prop]"
             :size="item.size"
@@ -181,7 +181,7 @@
             :placeholder="item.placeholder ?? '请选择' + item.label">
           </el-cascader>
         </el-form-item>
-        <el-form-item :label="item.label" :prop="item.prop" v-if="[ 'month', 'date', 'datetime', 'daterange', 'datetimerange'].includes(item.type)">
+        <el-form-item :label="item.label" :prop="item.prop" v-if="[ 'month', 'date', 'datetime', 'daterange', 'datetimerange'].includes(item.type) && (item.isShow ?? true)">
           <el-date-picker
             v-model="formData[item.prop]"
             :type="item.type"
@@ -243,7 +243,7 @@
           this.$emit(event, valid, fields)
         })
       },
-      hbFormReset() {
+      formReset() {
         this.$refs.hbFormRef.resetFields();
       }
     }

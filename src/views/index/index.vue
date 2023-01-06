@@ -184,7 +184,7 @@
         }).then(res => {
           if (res.code == 0 && res.data.length > 0) {
             if (menuId) {
-              util.getObjectArrayByKey(this.sideMenuList, 'id', menuId).children = res.data
+              util.getObjectInArrayByKey(this.sideMenuList, 'id', menuId).children = res.data
             } else {
               this.sideMenuList = res.data
             }

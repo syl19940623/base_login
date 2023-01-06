@@ -199,7 +199,7 @@
       loadDept() {
         this.$post('dept/getTreeChildrenData').then(res => {
           if (res.code == 0) {
-            util.getObjectArrayByKey(this.operateUserForm.list, 'prop', 'deptId').options = res.data
+            util.getObjectInArrayByKey(this.operateUserForm.list, 'prop', 'deptId').options = res.data
           }
         })
       },

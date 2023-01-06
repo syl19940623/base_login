@@ -94,7 +94,7 @@
       loadLogDate() {
         this.$post('log/getLogDateList').then(res => {
           if (res.code == 0) {
-            util.getObjectArrayByKey(this.tableData.toolbarList, 'prop', 'dateNum').options = res.data
+            util.getObjectInArrayByKey(this.tableData.toolbarList, 'prop', 'dateNum').options = res.data
             if (res.data.length > 0) {
               this.tableData.toolbarData.dateNum = res.data[0].value
             }

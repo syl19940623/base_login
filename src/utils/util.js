@@ -62,11 +62,11 @@ function checkLicense(code) {
 }
 
 // 获取数组中key=value的那个对象
-function getObjectArrayByKey(arr, key, value) {
+function getObjectInArrayByKey(arr, key, value) {
   for (let v in arr) {
     let element = arr[v]
     if (typeof (element) == 'object') {
-      let result = getObjectArrayByKey(element, key, value)
+      let result = getObjectInArrayByKey(element, key, value)
       if (result) return result;
     } else {
       if (v == key) {
@@ -116,39 +116,14 @@ function axiosCb(res, sCb, fCb) {
   }
 }
 
-// 时间转换
-function timeAgo(datetime) {
-  const now = new Date()
-  const datetimeStamp = new Date(datetime).getTime()
-  const todayInitStamp = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate() + ' 00:00:00'
-  const oneDayMs = 1000 * 60 * 60 * 24
-  const arr = ['昨天', '前天', '3天前', '4天前', '5天前', '6天前', '7天前']
-  if (datetimeStamp >= todayInitStamp) {
-    return datetime.split(' ')[1]
-  } else {
-    const dayNum = parseInt((todayInitStamp - datetimeStamp) / oneDayMs)
-    if (dayNum < 7) {
-      return arr[dayNum]
-    } else {
-      const date = datetime.split(' ')[0]
-      if (new Date(datetime).getFullYear() === now.getFullYear()) {
-        return date.slice(5).replace('-', '/')
-      } else {
-        return date.slice(2).replace('-', '/')
-      }
-    }
-  }
-}
-
 export const util = {
   checkPhone,
   checkMail,
   checkIdNumber,
   checkUrl,
   checkLicense,
-  getObjectArrayByKey,
+  getObjectInArrayByKey,
   randomInteger,
   copyStr,
-  axiosCb,
-  timeAgo
+  axiosCb
 }
